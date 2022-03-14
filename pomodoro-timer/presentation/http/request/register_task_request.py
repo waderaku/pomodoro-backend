@@ -7,5 +7,5 @@ class RegisterTaskRequest(BaseModel):
     parentId: str
     name: str
     estimatedMinutes: str
-    deadLine: date
+    deadline: date
     notes: str

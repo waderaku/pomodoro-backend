@@ -5,5 +5,5 @@ from pydantic import BaseModel
 
 class UpdateTaskRequest(BaseModel):
     name: str
-    deadLine: date
+    deadline: date
     notes: str

@@ -8,4 +8,4 @@ app = FastAPI(title="Pomodoro-Timerバックエンド")
 api_routing(app)
 
 if __name__ == "__main__":
-    uvicorn.run(app, port=8080)
+    uvicorn.run(app, port=9000)
