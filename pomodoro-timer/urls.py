@@ -26,7 +26,7 @@ def api_routing(app: FastAPI):
         "/task",
         fetch_task,
         methods=["GET"],
-        response_model=TaskResponse,
+        response_model=list(TaskResponse),
         tags=["task"],
     )
     app.add_api_route(
