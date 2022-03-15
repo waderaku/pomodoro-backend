@@ -18,7 +18,7 @@ class GoogleConfig(BaseModel):
 
 class DefaultLength(BaseModel):
     work: int
-    _break: int
+    rest: int
 
 
 class UserModel(BaseModel):
