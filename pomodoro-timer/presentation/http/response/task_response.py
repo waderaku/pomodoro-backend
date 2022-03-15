@@ -5,7 +5,6 @@ from pydantic import BaseModel
 
 class TaskData(BaseModel):
     name: str
-    done: bool
     childrenIdList: list[str]
     finishedMinutes: int
     estimatedMinutes: int
