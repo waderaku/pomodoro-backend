@@ -23,5 +23,5 @@ class DefaultLength(BaseModel):
 
 class UserModel(BaseModel):
     isGoogleLinked: bool
-    googleConfig: dict
-    defaultLength: dict
+    googleConfig: GoogleConfig
+    defaultLength: DefaultLength
