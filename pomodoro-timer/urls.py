@@ -1,15 +1,8 @@
 from fastapi import FastAPI
 
-from presentation.controller import (
-    fetch_root_task,
-    fetch_task,
-    fetch_user,
-    finish_task,
-    register_event,
-    register_task,
-    update_task,
-    update_user,
-)
+from presentation.controller import (fetch_root_task, fetch_task, fetch_user,
+                                     finish_task, register_event,
+                                     register_task, update_task, update_user)
 from presentation.http.common import UserModel
 from presentation.http.response import RootTaskResponse, TaskResponse
 
@@ -26,7 +19,7 @@ def api_routing(app: FastAPI):
         "/task",
         fetch_task,
         methods=["GET"],
-        response_model=list(TaskResponse),
+        response_model=list[TaskResponse],
         tags=["task"],
     )
     app.add_api_route(
