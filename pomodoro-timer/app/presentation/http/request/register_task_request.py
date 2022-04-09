@@ -6,6 +6,6 @@ from pydantic import BaseModel
 class RegisterTaskRequest(BaseModel):
     parentId: str
     name: str
-    estimatedMinutes: str
+    estimatedWorkload: str
     deadline: date
     notes: str

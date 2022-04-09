@@ -6,8 +6,8 @@ from pydantic import BaseModel
 class TaskData(BaseModel):
     name: str
     childrenIdList: list[str]
-    finishedMinutes: int
-    estimatedMinutes: int
+    finishedWorkload: int
+    estimatedWorkload: int
     deadline: date
     notes: str
 
