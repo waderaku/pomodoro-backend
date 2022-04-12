@@ -6,12 +6,18 @@ from pydantic import BaseModel
 class TaskData(BaseModel):
     name: str
     childrenIdList: list[str]
+    done: bool
     finishedWorkload: int
     estimatedWorkload: int
     deadline: date
     notes: str
 
 
-class TaskResponse(BaseModel):
+class Task(BaseModel):
     id: str
-    task: TaskData
+    taskData: TaskData
+
+
+class TaskResponse(BaseModel):
+    task: Task
+    rootTaskId: list[str]
