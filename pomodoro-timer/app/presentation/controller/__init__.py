@@ -1,7 +1,5 @@
-from app.presentation.controller.fetch_root_task_controller import fetch_root_task
 from app.presentation.controller.fetch_task_controller import fetch_task
 from app.presentation.controller.fetch_user_controller import fetch_user
-from app.presentation.controller.finish_task_controller import finish_task
 from app.presentation.controller.register_event_controller import register_event
 from app.presentation.controller.register_task_controller import register_task
 from app.presentation.controller.update_task_controller import update_task

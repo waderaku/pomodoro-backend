@@ -7,3 +7,4 @@ class UpdateTaskRequest(BaseModel):
     name: str
     deadline: date
     notes: str
+    done: bool

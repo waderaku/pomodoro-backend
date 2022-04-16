@@ -19,5 +19,5 @@ class Task(BaseModel):
 
 
 class TaskResponse(BaseModel):
-    task: Task
+    task: list[Task]
     rootTaskId: list[str]
