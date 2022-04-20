@@ -9,9 +9,15 @@ from main import app
 client = TestClient(app)
 
 TEST_PATH = Path("/").joinpath(
-    "root", "workspaces", "pomodoro-backend", "pomodoro-timer", "test"
+    "root",
+    "workspaces",
+    "pomodoro-backend",
+    "pomodoro-timer",
+    "test",
+    "presentation",
+    "controller",
 )
-test_data_path = TEST_PATH.joinpath("test_fetch_data.json")
+test_data_path = TEST_PATH.joinpath("test_fetch_task.json")
 with test_data_path.open("r") as f:
     test_data_list: list = json.load(f)
 

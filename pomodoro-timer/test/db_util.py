@@ -1,10 +1,7 @@
 import os
 
 import boto3
-
-
-def cretae_table():
-    pass
+from create_db import create_table
 
 
 def clear_and_insert(db: list[dict]):
@@ -13,10 +10,9 @@ def clear_and_insert(db: list[dict]):
     )
     table_name = "pomodoro-timer"
     if table_name in [tbl.name for tbl in dynamodb.tables.all()]:
-        dynamodb
-    dynamodb.table(table_name).delete()
+        dynamodb.table(table_name).delete()
 
-    table = cretae_table()
+    table = create_table()
 
     with table.batch_writer() as batch:
         for db_data in db:
