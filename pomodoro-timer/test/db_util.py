@@ -20,13 +20,13 @@ def clear_and_insert(db: list[dict]):
             batch.put_item(Item=db_data)
 
 
-def fetch_task(task_id: str) -> list[dict]:
+def fetch_task(user_id: str) -> list[dict]:
     dynamodb = boto3.resource(
         "dynamodb", endpoint_url=os.environ.get("DYNAMODB_ENDPOINT", None)
     )
     table_name = "pomodoro-timer"
     table = dynamodb.Table(table_name)
-    return table.query(KeyConditionExpression=Key("ID").eq(f"{task_id}_task"))["Items"]
+    return table.query(KeyConditionExpression=Key("ID").eq(f"{user_id}_task"))["Items"]
 
 
 def fetch_event(user_id: str) -> list[dict]:

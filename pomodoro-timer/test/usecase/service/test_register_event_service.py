@@ -37,7 +37,7 @@ def test_register_event_success_task(test_data: dict):
     event = fetch_event(request["user_id"])[0]
     assert answer["event_data"] == event
 
-    task_list = fetch_task(request["task_id"])
+    task_list = fetch_task(request["user_id"])
     assert answer["task_data"] == task_list
 
 
