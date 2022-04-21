@@ -1,7 +1,8 @@
 import os
 
 import boto3
-from create_db import create_table
+from boto3.dynamodb.conditions import Key
+from create_table import create_table
 
 
 def clear_and_insert(db: list[dict]):
@@ -17,3 +18,21 @@ def clear_and_insert(db: list[dict]):
     with table.batch_writer() as batch:
         for db_data in db:
             batch.put_item(Item=db_data)
+
+
+def fetch_task(task_id: str) -> list[dict]:
+    dynamodb = boto3.resource(
+        "dynamodb", endpoint_url=os.environ.get("DYNAMODB_ENDPOINT", None)
+    )
+    table_name = "pomodoro-timer"
+    table = dynamodb.Table(table_name)
+    return table.query(KeyConditionExpression=Key("ID").eq(f"{task_id}_task"))["Items"]
+
+
+def fetch_event(user_id: str) -> list[dict]:
+    dynamodb = boto3.resource(
+        "dynamodb", endpoint_url=os.environ.get("DYNAMODB_ENDPOINT", None)
+    )
+    table_name = "pomodoro-timer"
+    table = dynamodb.Table(table_name)
+    return table.query(KeyConditionExpression=Key("ID").eq(f"{user_id}_event"))["Items"]
