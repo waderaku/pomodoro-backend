@@ -1,59 +1,5 @@
 [
     {
-        "description": "startの形式がおかしくないか",
-        "db": [
-            {
-                "ID": "1",
-                "DataType": "user",
-                "UserInfo": {
-                    "name": "ユーザ1",
-                    "is_google_linked": false,
-                    "default_length": {
-                        "work": 25,
-                        "rest": 5
-                    }
-                }
-            },
-            {
-                "ID": "1",
-                "DataType": "1_name",
-                "DataValue": "親タスク1"
-            },
-            {
-                "ID": "1",
-                "DataType": "1_deadline",
-                "DataValue": "2022-04-09"
-            },
-            {
-                "ID": "1",
-                "DataType": "1_root",
-                "DataValue": "root_task"
-            },
-            {
-                "ID": "1_task",
-                "DataType": "1",
-                "DataValue": "False",
-                "TaskInfo": {
-                    "name": "親タスク1",
-                    "children_task_id": [],
-                    "finished_workload": 0,
-                    "estimated_workload": 150,
-                    "deadline": "2022-04-09",
-                    "notes": "備考を記載"
-                }
-            }
-        ],
-        "request": {
-            "user_id": "1",
-            "task_id": "1",
-            "start": "2022-04-20T22:16:39.287433",
-            "end": "2022-04-20T22:41:39.28743"
-        },
-        "answer": {
-            "error_message": "日付の形式はISO8601フォーマットに従ってください"
-        }
-    },
-    {
         "description": "タスクの存在チェックのテスト",
         "db": [
             {
@@ -90,8 +36,8 @@
                 "TaskInfo": {
                     "name": "親タスク1",
                     "children_task_id": [],
-                    "finished_workload": 0,
-                    "estimated_workload": 150,
+                    "finished_workload": 0.0,
+                    "estimated_workload": 150.0,
                     "deadline": "2022-04-09",
                     "notes": "備考を記載"
                 }
@@ -144,8 +90,8 @@
                 "TaskInfo": {
                     "name": "親タスク1",
                     "children_task_id": [],
-                    "finished_workload": 0,
-                    "estimated_workload": 150,
+                    "finished_workload": 0.0,
+                    "estimated_workload": 150.0,
                     "deadline": "2022-04-09",
                     "notes": "備考を記載"
                 }
@@ -158,7 +104,7 @@
             "end": "2022-04-20T22:41:39.287433"
         },
         "answer": {
-            "error_message": "対象のタスクが存在しません"
+            "error_message": "endはstart以降の時間を設定してください"
         }
     }
 ]
