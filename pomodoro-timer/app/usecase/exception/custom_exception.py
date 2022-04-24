@@ -17,3 +17,10 @@ class AlreadyExistUserException(Exception):
 
     def __init__(self):
         super().__init__("当該ユーザーは既に存在します")
+
+
+class NoExistUserException(Exception):
+    """対象のユーザーが存在しない場合の例外"""
+
+    def __init__(self):
+        super().__init__("当該ユーザーは存在しません")

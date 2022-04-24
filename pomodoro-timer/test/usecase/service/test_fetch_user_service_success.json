@@ -1,0 +1,113 @@
+[
+    {
+        "description": "google_configのないユーザーが取得できることのテスト",
+        "db": [
+            {
+                "ID": "1",
+                "DataType": "user",
+                "UserInfo": {
+                    "name": "ユーザ1",
+                    "is_google_linked": false,
+                    "default_length": {
+                        "work": 25,
+                        "rest": 5
+                    }
+                }
+            },
+            {
+                "ID": "2",
+                "DataType": "user",
+                "UserInfo": {
+                    "name": "ユーザ2",
+                    "is_google_linked": true,
+                    "google_config": {
+                        "calendar": {
+                            "id": "100",
+                            "name": "pomodoro-timer@gmail.com"
+                        },
+                        "task_list": {
+                            "id": "200",
+                            "name": "timer作成"
+                        }
+                    },
+                    "default_length": {
+                        "work": 25,
+                        "rest": 5
+                    }
+                }
+            }
+        ],
+        "request": {
+            "user_id": "1"
+        },
+        "answer": {
+            "user_id": "1",
+            "is_google_linked": false,
+            "google_config": null,
+            "default_length": {
+                "work": 25,
+                "rest": 5
+            }
+        }
+    },
+    {
+        "description": "google_configのあるユーザーが取得できることのテスト",
+        "db": [
+            {
+                "ID": "1",
+                "DataType": "user",
+                "UserInfo": {
+                    "name": "ユーザ1",
+                    "is_google_linked": false,
+                    "default_length": {
+                        "work": 25,
+                        "rest": 5
+                    }
+                }
+            },
+            {
+                "ID": "2",
+                "DataType": "user",
+                "UserInfo": {
+                    "name": "ユーザ2",
+                    "is_google_linked": true,
+                    "google_config": {
+                        "calendar": {
+                            "id": "100",
+                            "name": "pomodoro-timer@gmail.com"
+                        },
+                        "task_list": {
+                            "id": "200",
+                            "name": "timer作成"
+                        }
+                    },
+                    "default_length": {
+                        "work": 25,
+                        "rest": 5
+                    }
+                }
+            }
+        ],
+        "request": {
+            "user_id": "2"
+        },
+        "answer": {
+            "user_id": "1",
+            "is_google_linked": false,
+            "google_config": {
+                "calendar": {
+                    "id": "100",
+                    "name": "pomodoro-timer@gmail.com"
+                },
+                "task_list": {
+                    "id": "200",
+                    "name": "timer作成"
+                }
+            },
+            "default_length": {
+                "work": 25,
+                "rest": 5
+            }
+        }
+    }
+]
