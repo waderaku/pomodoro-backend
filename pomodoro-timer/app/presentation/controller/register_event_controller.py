@@ -6,4 +6,6 @@ from fastapi import Header
 
 
 async def register_event(request: RegisterEvent, userId: str = Header(None)):
-    register_event_service(userId, **request)
+    register_event_service(
+        userId, task_id=request.taskId, start=request.start, end=request.end
+    )
