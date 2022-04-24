@@ -75,6 +75,7 @@
             "ID": "1",
             "DataType": "user",
             "UserInfo": {
+                "name": "ユーザ1",
                 "is_google_linked": true,
                 "default_length": {
                     "work": 30,

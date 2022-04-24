@@ -24,3 +24,10 @@ class NoExistUserException(Exception):
 
     def __init__(self):
         super().__init__("当該ユーザーは存在しません")
+
+
+class NotSettingConfigException(Exception):
+    """対象のユーザーが存在しない場合の例外"""
+
+    def __init__(self):
+        super().__init__("config設定がないためgoogleとリンクさせることは出来ません")

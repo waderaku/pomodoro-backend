@@ -22,5 +22,6 @@ def create_google_config(google_config: dict | None) -> GoogleConfig | None:
     if not google_config:
         return
     return GoogleConfig(
-        Calender(**google_config["calender"]), TaskList(**google_config["task_list"])
+        calendar=Calender(**google_config["calendar"]),
+        taskList=TaskList(**google_config["task_list"]),
     )
