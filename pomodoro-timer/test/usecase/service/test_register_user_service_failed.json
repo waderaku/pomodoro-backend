@@ -1,0 +1,25 @@
+[
+    {
+        "description": "ユーザーが既に存在する場合新規登録されないことのテスト",
+        "db": [
+            {
+                "ID": "1",
+                "DataType": "user",
+                "UserInfo": {
+                    "name": "ユーザ1",
+                    "is_google_linked": false,
+                    "default_length": {
+                        "work": 25,
+                        "rest": 5
+                    }
+                }
+            }
+        ],
+        "request": {
+            "user_id": "1"
+        },
+        "answer": {
+            "error_message": "当該ユーザーは既に存在します"
+        }
+    }
+]

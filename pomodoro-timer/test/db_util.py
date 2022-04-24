@@ -7,6 +7,15 @@ from create_table import create_table
 TABLE_NAME = "pomodoro_info"
 
 
+def _get_pomodoro_table():
+    resource = boto3.resource(
+        "dynamodb",
+        endpoint_url=os.environ.get("DYNAMODB_ENDPOINT", None),
+    )
+    table = resource.Table(TABLE_NAME)
+    return table
+
+
 def clear_and_insert(db: list[dict]):
     dynamodb = boto3.resource(
         "dynamodb", endpoint_url=os.environ.get("DYNAMODB_ENDPOINT", None)
@@ -22,16 +31,17 @@ def clear_and_insert(db: list[dict]):
 
 
 def fetch_task(user_id: str) -> list[dict]:
-    dynamodb = boto3.resource(
-        "dynamodb", endpoint_url=os.environ.get("DYNAMODB_ENDPOINT", None)
-    )
-    table = dynamodb.Table(TABLE_NAME)
+    table = _get_pomodoro_table()
     return table.query(KeyConditionExpression=Key("ID").eq(f"{user_id}_task"))["Items"]
 
 
 def fetch_event(user_id: str) -> list[dict]:
-    dynamodb = boto3.resource(
-        "dynamodb", endpoint_url=os.environ.get("DYNAMODB_ENDPOINT", None)
-    )
-    table = dynamodb.Table(TABLE_NAME)
+    table = _get_pomodoro_table()
     return table.query(KeyConditionExpression=Key("ID").eq(f"{user_id}_event"))["Items"]
+
+
+def fetch_user(user_id: str) -> dict:
+    table = _get_pomodoro_table()
+    return table.get_item(Key={"ID": f"{user_id}", "DataType": "user"}).get(
+        "Item", None
+    )

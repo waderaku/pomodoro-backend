@@ -5,6 +5,7 @@ from app.presentation.controller import (
     fetch_user,
     register_event,
     register_task,
+    register_user,
     update_task,
     update_user,
 )
@@ -32,7 +33,8 @@ def api_routing(app: FastAPI):
         description="""
         タスクを新規に登録する。
         IDはuuidによって一意に登録される。
-        親タスクの作業見積時間の再計算が行われる。
+        親タスクの作業見積時間及び期日の再計算が行われる。
+        対象ユーザのSocketIDに最新のタスク情報を返却する。
         """,
     )
     app.add_api_route(
@@ -42,8 +44,9 @@ def api_routing(app: FastAPI):
         tags=["task"],
         description="""
         タスクのデータを更新する。
-        親タスクの作業見積時間の再計算が行われる。
+        親タスクの作業見積時間及び期日の再計算が行われる。
         あるタスクを完了に変更した場合、その子タスクも完了にする。
+        対象ユーザのSocketIDに最新のタスク情報を返却する。
         """,
     )
     app.add_api_route(
@@ -58,7 +61,7 @@ def api_routing(app: FastAPI):
     )
     app.add_api_route(
         "/user",
-        update_user,
+        register_user,
         methods=["POST"],
         tags=["user"],
         description="""
