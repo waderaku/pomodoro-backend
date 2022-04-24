@@ -4,7 +4,7 @@ from pathlib import Path
 from test.db_util import clear_and_insert, fetch_user
 
 import pytest
-from app.usecase.service.register_user_service import register_user_service
+from app.usecase.service.update_user_service import update_user_service
 
 TEST_PATH = Path("/").joinpath(
     "root",
@@ -32,7 +32,7 @@ def test_register_event_success_task(test_data_success: dict):
     db_data = test_data_success["db"]
     clear_and_insert(db_data)
 
-    register_user_service(**request)
+    update_user_service(**request)
     user = fetch_user(request["user_id"])
     assert answer == user
 
@@ -46,5 +46,5 @@ def test_register_event_failed_task(test_data_failed: dict):
     clear_and_insert(db_data)
 
     with pytest.raises(Exception) as e:
-        register_user_service(**request)
+        update_user_service(**request)
     assert str(e.value) == answer["error_message"]
