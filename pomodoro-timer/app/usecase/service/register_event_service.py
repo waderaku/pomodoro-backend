@@ -4,7 +4,9 @@ from decimal import ROUND_HALF_UP, Decimal
 
 import boto3
 from app.usecase.exception.custom_exception import (
-    AdditionalNegativeValueException, NoExistTaskException)
+    AdditionalNegativeValueException,
+    NoExistTaskException,
+)
 from boto3.dynamodb.conditions import Key
 
 table_name = "pomodoro_info"
@@ -34,7 +36,6 @@ def register_event_service(
     )["Items"]
 
     # 対象のタスクを取得
-
     response = table.get_item(Key={"ID": f"{user_id}_task", "DataType": task_id})
     task = response.get("Item", None)
     if not task:
