@@ -1,0 +1,60 @@
+[
+    {
+        "description": "対象ユーザが存在しない場合更新されないことのテスト",
+        "db": [
+            {
+                "ID": "1",
+                "DataType": "user",
+                "UserInfo": {
+                    "name": "ユーザ1",
+                    "is_google_linked": false,
+                    "default_length": {
+                        "work": 25,
+                        "rest": 5
+                    }
+                }
+            }
+        ],
+        "request": {
+            "user_id": "2",
+            "is_google_linked": false,
+            "default_length": {
+                "work": 25,
+                "rest": 5
+            },
+            "google_config": null
+        },
+        "answer": {
+            "error_message": "当該ユーザーは存在しません"
+        }
+    },
+    {
+        "description": "google_configが存在しない場合googleとリンクできないことのテスト",
+        "db": [
+            {
+                "ID": "1",
+                "DataType": "user",
+                "UserInfo": {
+                    "name": "ユーザ1",
+                    "is_google_linked": false,
+                    "default_length": {
+                        "work": 25,
+                        "rest": 5
+                    }
+                }
+            }
+        ],
+        "request": {
+            "user_id": "1",
+            "is_google_linked": true,
+            "default_length": {
+                "work": 25,
+                "rest": 5
+            },
+            "google_config": null
+        },
+        "answer": {
+            "error_message": "config設定がないためgoogleとリンクさせることは出来ません"
+        }
+    }
+]

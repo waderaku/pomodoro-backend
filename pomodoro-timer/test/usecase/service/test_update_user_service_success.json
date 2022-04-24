@@ -1,0 +1,96 @@
+[
+    {
+        "description": "変更なしでもユーザーの更新が完了することのテスト",
+        "db": [
+            {
+                "ID": "1",
+                "DataType": "user",
+                "UserInfo": {
+                    "name": "ユーザ1",
+                    "is_google_linked": false,
+                    "default_length": {
+                        "work": 25,
+                        "rest": 5
+                    }
+                }
+            }
+        ],
+        "request": {
+            "user_id": "1",
+            "is_google_linked": false,
+            "default_length": {
+                "work": 25,
+                "rest": 5
+            },
+            "google_config": null
+        },
+        "answer": {
+            "ID": "1",
+            "DataType": "user",
+            "UserInfo": {
+                "name": "ユーザ1",
+                "is_google_linked": false,
+                "default_length": {
+                    "work": 25,
+                    "rest": 5
+                }
+            }
+        }
+    },
+    {
+        "description": "ユーザーの更新ができることのテスト",
+        "db": [
+            {
+                "ID": "1",
+                "DataType": "user",
+                "UserInfo": {
+                    "name": "ユーザ1",
+                    "is_google_linked": false,
+                    "default_length": {
+                        "work": 25,
+                        "rest": 5
+                    }
+                }
+            }
+        ],
+        "request": {
+            "user_id": "1",
+            "is_google_linked": true,
+            "default_length": {
+                "work": 30,
+                "rest": 0
+            },
+            "google_config": {
+                "calendar": {
+                    "id": "100",
+                    "name": "カレンダー１"
+                },
+                "task_list": {
+                    "id": "200",
+                    "name": "タスク一覧A"
+                }
+            }
+        },
+        "answer": {
+            "ID": "1",
+            "DataType": "user",
+            "UserInfo": {
+                "is_google_linked": true,
+                "default_length": {
+                    "work": 30,
+                    "rest": 0
+                },
+                "google_config": {
+                    "calendar": {
+                        "id": "100",
+                        "name": "カレンダー１"
+                    },
+                    "task_list": {
+                        "id": "200",
+                        "name": "タスク一覧A"
+                    }
+                }
+            }
+        }
+    }
+]
