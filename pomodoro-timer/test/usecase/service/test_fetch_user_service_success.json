@@ -92,8 +92,8 @@
             "user_id": "2"
         },
         "answer": {
-            "user_id": "1",
-            "is_google_linked": false,
+            "user_id": "2",
+            "is_google_linked": true,
             "google_config": {
                 "calendar": {
                     "id": "100",
