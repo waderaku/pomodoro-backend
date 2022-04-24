@@ -37,7 +37,7 @@ def test_register_event_success_task(test_data_success: dict):
     assert answer == user
 
 
-##########ユーザー異常系テスト##############
+##########ユーザー登録異常系テスト##############
 @pytest.mark.parametrize("test_data_failed", test_data_failed_list)
 def test_register_event_failed_task(test_data_failed: dict):
     request = test_data_failed["request"]
