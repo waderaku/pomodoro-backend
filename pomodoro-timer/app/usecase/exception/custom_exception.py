@@ -10,3 +10,10 @@ class NoExistTaskException(Exception):
 
     def __init__(self):
         super().__init__("対象のタスクが存在しません")
+
+
+class AlreadyExistUserException(Exception):
+    """既に対象のユーザーが存在する場合の例外"""
+
+    def __init__(self):
+        super().__init__("当該ユーザーは既に存在します")
