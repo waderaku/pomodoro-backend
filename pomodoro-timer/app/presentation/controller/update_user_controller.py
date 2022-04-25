@@ -1,3 +1,5 @@
+from typing import Optional
+
 from app.presentation.http.common.user_model import GoogleConfig, UserModel
 from app.usecase.service.update_user_service import update_user_service
 from fastapi import Header
@@ -17,7 +19,7 @@ async def update_user(request: UserModel, userId: str = Header(None)):
     )
 
 
-def _create_google_config(google_config: GoogleConfig | None):
+def _create_google_config(google_config: Optional[GoogleConfig]):
     if not google_config:
         return
     return {

@@ -1,3 +1,5 @@
+from typing import Optional
+
 from app.presentation.http.common.user_model import (
     Calender,
     DefaultLength,
@@ -18,7 +20,7 @@ async def fetch_user(userId: str = Header(None)) -> UserModel:
     )
 
 
-def create_google_config(google_config: dict | None) -> GoogleConfig | None:
+def create_google_config(google_config: Optional[dict]) -> Optional[GoogleConfig]:
     if not google_config:
         return
     return GoogleConfig(

@@ -1,3 +1,5 @@
+from typing import Optional
+
 from pydantic import BaseModel
 
 
@@ -23,5 +25,5 @@ class DefaultLength(BaseModel):
 
 class UserModel(BaseModel):
     isGoogleLinked: bool
-    googleConfig: GoogleConfig | None = None
+    googleConfig: Optional[GoogleConfig] = None
     defaultLength: DefaultLength

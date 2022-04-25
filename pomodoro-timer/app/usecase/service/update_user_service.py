@@ -1,10 +1,9 @@
 import os
+from typing import Optional
 
 import boto3
-from app.usecase.exception.custom_exception import (
-    NoExistUserException,
-    NotSettingConfigException,
-)
+from app.usecase.exception.custom_exception import (NoExistUserException,
+                                                    NotSettingConfigException)
 
 table_name = "pomodoro_info"
 
@@ -13,7 +12,7 @@ def update_user_service(
     user_id: str,
     is_google_linked: bool,
     default_length: dict[str, int],
-    google_config: dict[str, dict] | None = None,
+    google_config: Optional[dict[str, dict]] = None,
 ):
     dynamodb = boto3.resource(
         "dynamodb", endpoint_url=os.environ.get("DYNAMODB_ENDPOINT", None)

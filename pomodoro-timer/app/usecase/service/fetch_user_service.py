@@ -1,5 +1,6 @@
 import os
 from dataclasses import dataclass
+from typing import Optional
 
 import boto3
 from app.usecase.exception.custom_exception import NoExistUserException
@@ -12,7 +13,7 @@ class User:
     user_id: str
     is_google_linked: bool
     default_length: dict
-    google_config: dict | None
+    google_config: Optional[dict]
 
 
 def fetch_user_service(user_id: str) -> User:
