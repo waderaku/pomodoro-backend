@@ -1,6 +1,7 @@
 import json
 from decimal import Decimal
 from pathlib import Path
+from test.common import initial_process
 from test.db_util import clear_and_insert, fetch_user
 
 import pytest
@@ -27,11 +28,7 @@ with test_data_failed_path.open("r") as f:
 ##########ユーザー登録正常系テスト##############
 @pytest.mark.parametrize("test_data_success", test_data_success_list)
 def test_register_event_success_task(test_data_success: dict):
-    request = test_data_success["request"]
-    answer = test_data_success["answer"]
-    db_data = test_data_success["db"]
-    clear_and_insert(db_data)
-
+    request, answer = initial_process(test_data_success)
     update_user_service(**request)
     user = fetch_user(request["user_id"])
     assert answer == user
@@ -40,11 +37,7 @@ def test_register_event_success_task(test_data_success: dict):
 ##########ユーザー登録異常系テスト##############
 @pytest.mark.parametrize("test_data_failed", test_data_failed_list)
 def test_register_event_failed_task(test_data_failed: dict):
-    request = test_data_failed["request"]
-    answer = test_data_failed["answer"]
-    db_data = test_data_failed["db"]
-    clear_and_insert(db_data)
-
+    request, answer = initial_process(test_data_failed)
     with pytest.raises(Exception) as e:
         update_user_service(**request)
     assert str(e.value) == answer["error_message"]
