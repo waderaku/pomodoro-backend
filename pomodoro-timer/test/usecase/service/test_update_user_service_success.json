@@ -6,8 +6,8 @@
                 "ID": "1",
                 "DataType": "user",
                 "UserInfo": {
-                    "name": "ユーザ1",
                     "is_google_linked": false,
+                    "google_config": null,
                     "default_length": {
                         "work": 25,
                         "rest": 5
@@ -28,8 +28,8 @@
             "ID": "1",
             "DataType": "user",
             "UserInfo": {
-                "name": "ユーザ1",
                 "is_google_linked": false,
+                "google_config": null,
                 "default_length": {
                     "work": 25,
                     "rest": 5
@@ -44,8 +44,8 @@
                 "ID": "1",
                 "DataType": "user",
                 "UserInfo": {
-                    "name": "ユーザ1",
                     "is_google_linked": false,
+                    "google_config": null,
                     "default_length": {
                         "work": 25,
                         "rest": 5
@@ -75,7 +75,6 @@
             "ID": "1",
             "DataType": "user",
             "UserInfo": {
-                "name": "ユーザ1",
                 "is_google_linked": true,
                 "default_length": {
                     "work": 30,

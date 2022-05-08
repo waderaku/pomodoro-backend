@@ -27,7 +27,7 @@ with test_data_failed_path.open("r") as f:
 
 ##########ユーザー登録正常系テスト##############
 @pytest.mark.parametrize("test_data_success", test_data_success_list)
-def test_register_event_success_task(test_data_success: dict):
+def test_update_user_success(test_data_success: dict):
     request, answer = initial_process(test_data_success)
     update_user_service(**request)
     user = fetch_user(request["user_id"])
@@ -36,7 +36,7 @@ def test_register_event_success_task(test_data_success: dict):
 
 ##########ユーザー登録異常系テスト##############
 @pytest.mark.parametrize("test_data_failed", test_data_failed_list)
-def test_register_event_failed_task(test_data_failed: dict):
+def test_update_user_failed(test_data_failed: dict):
     request, answer = initial_process(test_data_failed)
     with pytest.raises(Exception) as e:
         update_user_service(**request)

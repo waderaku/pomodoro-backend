@@ -6,8 +6,8 @@
                 "ID": "1",
                 "DataType": "user",
                 "UserInfo": {
-                    "name": "ユーザ1",
                     "is_google_linked": false,
+                    "google_config": null,
                     "default_length": {
                         "work": 25,
                         "rest": 5
@@ -29,14 +29,14 @@
         }
     },
     {
-        "description": "google_configが存在しない場合googleとリンクできないことのテスト",
+        "description": "google_configが存在しない場合Googleとリンクできないことのテスト",
         "db": [
             {
                 "ID": "1",
                 "DataType": "user",
                 "UserInfo": {
-                    "name": "ユーザ1",
                     "is_google_linked": false,
+                    "google_config": null,
                     "default_length": {
                         "work": 25,
                         "rest": 5
@@ -54,7 +54,7 @@
             "google_config": null
         },
         "answer": {
-            "error_message": "config設定がないためgoogleとリンクさせることは出来ません"
+            "error_message": "config設定がないためGoogleとリンクさせることは出来ません"
         }
     }
 ]

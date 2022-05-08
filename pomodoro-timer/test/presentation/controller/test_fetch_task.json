@@ -19,7 +19,6 @@
                 "ID": "1",
                 "DataType": "user",
                 "UserInfo": {
-                    "name": "ユーザ1",
                     "is_google_linked": false,
                     "default_length": {
                         "work": 25,
@@ -31,7 +30,6 @@
                 "ID": "2",
                 "DataType": "user2",
                 "UserInfo": {
-                    "name": "ユーザ2",
                     "is_google_linked": false,
                     "default_length": {
                         "work": 25,
@@ -295,7 +293,6 @@
                 "ID": "1",
                 "DataType": "user",
                 "UserInfo": {
-                    "name": "ユーザ1",
                     "is_google_linked": false,
                     "default_length": {
                         "work": 25,

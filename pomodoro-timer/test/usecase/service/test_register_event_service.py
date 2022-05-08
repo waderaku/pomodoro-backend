@@ -28,7 +28,7 @@ with test_data_failed_path.open("r") as f:
 
 ##########イベント登録正常系テスト##############
 @pytest.mark.parametrize("test_data_success", test_data_success_list)
-def test_register_event_success_task(test_data_success: dict):
+def test_register_event_success(test_data_success: dict):
     request, answer = initial_process(test_data_success)
     request["start"] = datetime.fromisoformat(request["start"])
     request["end"] = datetime.fromisoformat(request["end"])
@@ -43,7 +43,7 @@ def test_register_event_success_task(test_data_success: dict):
 
 ##########イベント登録異常系テスト##############
 @pytest.mark.parametrize("test_data_failed", test_data_failed_list)
-def test_register_event_failed_task(test_data_failed: dict):
+def test_register_event_failed(test_data_failed: dict):
     request, answer = initial_process(test_data_failed)
     request["start"] = datetime.fromisoformat(request["start"])
     request["end"] = datetime.fromisoformat(request["end"])
