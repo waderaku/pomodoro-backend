@@ -27,7 +27,7 @@ class NoExistUserException(Exception):
 
 
 class NotSettingConfigException(Exception):
-    """対象のユーザーが存在しない場合の例外"""
+    """カレンダーやタスクリストの指定がない状態でGoogleとリンクしようとしている場合の例外"""
 
     def __init__(self):
-        super().__init__("config設定がないためgoogleとリンクさせることは出来ません")
+        super().__init__("config設定がないためGoogleとリンクさせることは出来ません")

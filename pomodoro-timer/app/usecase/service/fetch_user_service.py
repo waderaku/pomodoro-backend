@@ -1,35 +1,24 @@
-import os
-from dataclasses import dataclass
-from typing import Optional
-
-import boto3
-from app.usecase.exception.custom_exception import NoExistUserException
-
-table_name = "pomodoro_info"
+import inject
+from app.domain.exception.custom_exception import NoExistUserException
+from app.domain.model.entity.user import User
+from app.domain.repository.user_repository import UserRepository
 
 
-@dataclass
-class User:
-    user_id: str
-    is_google_linked: bool
-    default_length: dict
-    google_config: Optional[dict]
+@inject.params(user_repository=UserRepository)
+def fetch_user_service(user_repository: UserRepository, user_id: str) -> User:
+    """ユーザIDに紐づくユーザ情報を取得する
 
+    Args:
+        user_repository (UserRepository): ユーザ情報についてDBとやり取りを行うリポジトリ
+        user_id (str): ユーザID
 
-def fetch_user_service(user_id: str) -> User:
-    dynamodb = boto3.resource(
-        "dynamodb", endpoint_url=os.environ.get("DYNAMODB_ENDPOINT", None)
-    )
-    table = dynamodb.Table(table_name)
-    user = table.get_item(Key={"ID": user_id, "DataType": "user"}).get("Item", None)
+    Raises:
+        NoExistUserException: 対象のユーザが存在しないことを示す例外
+
+    Returns:
+        User: 取得したユーザ
+    """
+    user = user_repository.find_by_id(user_id=user_id)
     if not user:
         raise NoExistUserException()
-    user_info = user["UserInfo"]
-    return User(
-        user_id=user_id,
-        is_google_linked=user_info["is_google_linked"],
-        default_length=user_info["default_length"],
-        google_config=user_info["google_config"]
-        if user_info["is_google_linked"]
-        else None,
-    )
+    return user

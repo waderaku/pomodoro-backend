@@ -1,37 +1,48 @@
-import os
 from typing import Optional
 
-import boto3
-from app.usecase.exception.custom_exception import (NoExistUserException,
-                                                    NotSettingConfigException)
+import inject
+from app.domain.exception.custom_exception import NoExistUserException
+from app.domain.model.value.default_length import DefaultLength
+from app.domain.model.value.google_config import (Calendar, GoogleConfig,
+                                                  TaskList)
+from app.domain.repository.user_repository import UserRepository
 
-table_name = "pomodoro_info"
 
-
+@inject.params(user_repository=UserRepository)
 def update_user_service(
+    user_repository: UserRepository,
     user_id: str,
     is_google_linked: bool,
     default_length: dict[str, int],
     google_config: Optional[dict[str, dict]] = None,
 ):
-    dynamodb = boto3.resource(
-        "dynamodb", endpoint_url=os.environ.get("DYNAMODB_ENDPOINT", None)
-    )
-    table = dynamodb.Table(table_name)
-    response = table.get_item(Key={"ID": user_id, "DataType": "user"})
+    """ユーザ情報の更新を行う
 
-    if not "Item" in response:
+    Args:
+        user_repository (UserRepository): ユーザ情報についてDBとやり取りを行うリポジトリ
+        user_id (str): ユーザID
+        is_google_linked (bool): Googleアカウントと連携する場合True、しない場合False
+        default_length (dict[str, int]): 作業時間、休憩時間の基本設定
+        google_config (Optional[dict[str, dict]], optional): Googleアカウントと連携する場合のGoogleカレンダー、タスクのID
+
+    Raises:
+        NoExistUserException: 更新対象のユーザが存在しないことを示す例外
+    """
+    # 存在チェック
+    user = user_repository.find_by_id(user_id=user_id)
+    if not user:
         raise NoExistUserException()
 
-    user = response["Item"]
-    # googleとリンクするのにconfig設定がない場合エラー
-    if is_google_linked and not google_config:
-        raise NotSettingConfigException()
-
-    user_info = {"is_google_linked": is_google_linked, "default_length": default_length}
+    # ユーザの更新
+    default_length = DefaultLength(default_length["work"], default_length["rest"])
     if google_config:
-        user_info["google_config"] = google_config
-
-    user["UserInfo"].update(user_info)
-
-    table.put_item(Item=user)
+        google_config = GoogleConfig(
+            Calendar(**google_config["calendar"]),
+            TaskList(**google_config["task_list"]),
+        )
+    user.update(
+        is_google_linked=is_google_linked,
+        default_length=default_length,
+        google_config=google_config,
+    )
+    user_repository.update_user(user)
