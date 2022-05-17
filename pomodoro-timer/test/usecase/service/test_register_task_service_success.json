@@ -44,26 +44,23 @@
         ],
         "request": {
             "user_id": "1",
-            "parentId": "",
+            "parent_id": "",
             "name": "親タスク2",
-            "estimatedWorkload": 30,
+            "estimated_workload": 30.0,
             "deadline": "2022-05-15",
             "notes": "メモメモ"
         },
         "answer": [
             {
                 "ID": "1",
-                "DataType": "1_deadline",
-                "DataValue": "2022-04-09"
+                "DataValue": "2022-05-15"
             },
             {
                 "ID": "1",
-                "DataType": "1_name",
-                "DataValue": "親タスク1"
+                "DataValue": "親タスク2"
             },
             {
                 "ID": "1",
-                "DataType": "1_root",
                 "DataValue": "root_task"
             },
             {
@@ -125,9 +122,9 @@
         ],
         "request": {
             "user_id": "1",
-            "parentId": "1",
+            "parent_id": "1",
             "name": "親タスク2",
-            "estimatedWorkload": 50,
+            "estimated_workload": 50.0,
             "deadline": "2022-04-08",
             "notes": "メモメモ"
         },
@@ -154,7 +151,7 @@
                     "finished_workload": 0.0,
                     "estimated_workload": 50.0,
                     "deadline": "2022-04-08",
-                    "notes": "備考を記載"
+                    "notes": "メモメモ"
                 }
             }
         }
@@ -302,9 +299,9 @@
         ],
         "request": {
             "user_id": "1",
-            "parentId": "4",
+            "parent_id": "4",
             "name": "新規タスク",
-            "estimatedWorkload": 70,
+            "estimated_workload": 70.0,
             "deadline": "2022-04-06",
             "notes": "メモメモ"
         },

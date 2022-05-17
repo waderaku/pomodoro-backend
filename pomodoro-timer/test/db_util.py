@@ -53,7 +53,7 @@ def fetch_task_by_task_id(user_id: str, task_id: str) -> list[dict]:
     task_name = table.get_item(Key={"ID": user_id, "DataType": f"{task_id}_name"}).get(
         "Item", {}
     )
-    task_root = table.get_item(Key={"ID": user_id, "DataType": f"{task_id}_name"}).get(
+    task_root = table.get_item(Key={"ID": user_id, "DataType": f"{task_id}_root"}).get(
         "Item", {}
     )
     return [task_deadline, task_name, task_root, task]
