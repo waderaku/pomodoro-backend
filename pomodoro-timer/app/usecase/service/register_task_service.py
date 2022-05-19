@@ -8,6 +8,7 @@ import boto3
 from app.domain.exception.custom_exception import (
     AlreadyDoneParentTaskException,
     NoExistParentTaskException,
+    NoExistUserException,
 )
 from boto3.dynamodb.conditions import Key
 
@@ -32,6 +33,10 @@ def register_task_service(
         "dynamodb", endpoint_url=os.environ.get("DYNAMODB_ENDPOINT", None)
     )
     table = dynamodb.Table(table_name)
+
+    # 対象ユーザーの存在確認
+    if not table.get_item(Key={"ID": user_id, "DataType": "user"}).get("Item"):
+        raise NoExistUserException()
 
     # タスク一覧の取得
     task_list: list[dict] = table.query(
