@@ -53,6 +53,21 @@
         },
         "answer": [
             {
+                "ID": "1",
+                "DataType": "1_deadline",
+                "DataValue": "2022-04-08"
+            },
+            {
+                "ID": "1",
+                "DataType": "1_name",
+                "DataValue": "親タスク1（変更）"
+            },
+            {
+                "ID": "1",
+                "DataType": "1_root",
+                "DataValue": "root_task"
+            },
+            {
                 "ID": "1_task",
                 "DataType": "1",
                 "DataValue": "False",
