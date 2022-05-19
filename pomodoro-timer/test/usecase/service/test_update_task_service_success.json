@@ -57,7 +57,7 @@
                 "DataType": "1",
                 "DataValue": "False",
                 "TaskInfo": {
-                    "name": "親タスク1",
+                    "name": "親タスク1（変更）",
                     "children_task_id": [],
                     "finished_workload": 0.0,
                     "estimated_workload": 100.0,
@@ -294,7 +294,9 @@
                 "DataValue": "True",
                 "TaskInfo": {
                     "name": "孫タスク1",
-                    "children_task_id": [],
+                    "children_task_id": [
+                        "6"
+                    ],
                     "finished_workload": 40.0,
                     "estimated_workload": 40.0,
                     "deadline": "2022-04-05",
@@ -556,7 +558,9 @@
                 "DataValue": "False",
                 "TaskInfo": {
                     "name": "孫タスク1",
-                    "children_task_id": [],
+                    "children_task_id": [
+                        "6"
+                    ],
                     "finished_workload": 40.0,
                     "estimated_workload": 40.0,
                     "deadline": "2022-04-05",
@@ -701,7 +705,9 @@
                 "DataValue": "False",
                 "TaskInfo": {
                     "name": "孫タスク1",
-                    "children_task_id": [],
+                    "children_task_id": [
+                        "6"
+                    ],
                     "finished_workload": 40.0,
                     "estimated_workload": 40.0,
                     "deadline": "2022-04-05",
@@ -817,7 +823,9 @@
                     "DataValue": "False",
                     "TaskInfo": {
                         "name": "孫タスク1",
-                        "children_task_id": [],
+                        "children_task_id": [
+                            "6"
+                        ],
                         "finished_workload": 40.0,
                         "estimated_workload": 70.0,
                         "deadline": "2022-04-06",

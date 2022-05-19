@@ -27,7 +27,7 @@ with test_data_failed_path.open("r") as f:
     test_data_failed_list: list = json.load(f, parse_float=Decimal)
 
 ##########タスク更新正常系テスト##############
-@pytest.mark.parametrize("test_data_success", test_data_success_list[:2])
+@pytest.mark.parametrize("test_data_success", test_data_success_list[:3])
 def test_update_task_success(test_data_success: dict):
     request, answer = initial_process(test_data_success)
     request["deadline"] = datetime.strptime(request["deadline"], "%Y-%m-%d")
@@ -38,9 +38,8 @@ def test_update_task_success(test_data_success: dict):
     assert answer == task_list
 
 
-@pytest.mark.parametrize("test_data_success", test_data_success_list[2])
-def test_update_for_parent_task_success(test_data_success: dict):
-    request, answer = initial_process(test_data_success)
+def test_update_for_parent_task_success():
+    request, answer = initial_process(test_data_success_list[3])
     request["deadline"] = datetime.strptime(request["deadline"], "%Y-%m-%d")
     update_task_service(**request)
 
