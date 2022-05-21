@@ -3,4 +3,4 @@ from fastapi import Header
 
 
 async def register_user(userId: str = Header(None)):
-    register_user_service(userId)
+    register_user_service(user_id=userId)

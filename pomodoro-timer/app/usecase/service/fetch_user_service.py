@@ -1,3 +1,5 @@
+from typing import Optional
+
 import inject
 from app.domain.exception.custom_exception import NoExistUserException
 from app.domain.model.entity.user import User
@@ -5,7 +7,9 @@ from app.domain.repository.user_repository import UserRepository
 
 
 @inject.params(user_repository=UserRepository)
-def fetch_user_service(user_repository: UserRepository, user_id: str) -> User:
+def fetch_user_service(
+    user_id: str, user_repository: Optional[UserRepository] = None
+) -> User:
     """ユーザIDに紐づくユーザ情報を取得する
 
     Args:
