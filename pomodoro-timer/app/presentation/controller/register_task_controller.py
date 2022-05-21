@@ -1,15 +1,30 @@
-from app.presentation.http.request.register_task_request import \
-    RegisterTaskRequest
+import traceback
+
+from app.domain.exception.custom_exception import (
+    AlreadyDoneParentTaskException,
+    NoExistParentTaskException,
+    NoExistUserException,
+)
+from app.presentation.http.request.register_task_request import RegisterTaskRequest
 from app.usecase.service.register_task_service import register_task_service
-from fastapi import Header
+from fastapi import Header, HTTPException
 
 
 async def register_task(request: RegisterTaskRequest, userId: str = Header(None)):
-    task = register_task_service(
-        user_id=userId,
-        parent_id=request.parentId,
-        name=request.name,
-        estimated_workload=request.estimatedWorkload,
-        deadline=request.deadline,
-        notes=request.notes,
-    )
+    try:
+        task = register_task_service(
+            user_id=userId,
+            parent_id=request.parentId,
+            name=request.name,
+            estimated_workload=request.estimatedWorkload,
+            deadline=request.deadline,
+            notes=request.notes,
+        )
+    except (NoExistUserException, NoExistParentTaskException) as e:
+        raise HTTPException(
+            status_code=404, detail=traceback.format_exception_only(type(e), e)
+        )
+    except AlreadyDoneParentTaskException as e:
+        raise HTTPException(
+            status_code=400, detail=traceback.format_exception_only(type(e), e)
+        )
