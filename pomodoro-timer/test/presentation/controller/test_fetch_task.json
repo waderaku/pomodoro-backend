@@ -4,7 +4,7 @@
         "db": [],
         "request": {
             "headers": {
-                "user_id": "1"
+                "userId": "1"
             }
         },
         "answer": {
@@ -195,14 +195,14 @@
         ],
         "request": {
             "headers": {
-                "user_id": "1"
+                "userId": "1"
             }
         },
         "answer": {
             "task": [
                 {
                     "id": "1",
-                    "task": {
+                    "taskData": {
                         "name": "親タスク1",
                         "childrenIdList": [
                             "2",
@@ -212,24 +212,24 @@
                         "estimatedWorkload": 150,
                         "deadline": "2022-04-09",
                         "notes": "備考を記載",
-                        "done": "False"
+                        "done": false
                     }
                 },
                 {
                     "id": "2",
-                    "task": {
+                    "taskData": {
                         "name": "子タスク1",
                         "childrenIdList": [],
                         "finishedWorkload": 30,
                         "estimatedWorkload": 50,
                         "deadline": "2022-04-08",
                         "notes": "",
-                        "done": "True"
+                        "done": true
                     }
                 },
                 {
                     "id": "3",
-                    "task": {
+                    "taskData": {
                         "name": "子タスク2",
                         "childrenIdList": [
                             "4"
@@ -238,45 +238,45 @@
                         "estimatedWorkload": 60,
                         "deadline": "2022-04-09",
                         "notes": "",
-                        "done": "False"
+                        "done": false
                     }
                 },
                 {
                     "id": "4",
-                    "task": {
+                    "taskData": {
                         "name": "孫タスク1",
                         "childrenIdList": [],
                         "finishedWorkload": 40,
                         "estimatedWorkload": 60,
                         "deadline": "2022-04-09",
                         "notes": "",
-                        "done": "False"
+                        "done": false
                     }
                 },
                 {
                     "id": "5",
-                    "task": {
+                    "taskData": {
                         "name": "親タスク2",
                         "childrenIdList": [
                             "6"
                         ],
-                        "finished_workload": 40,
-                        "estimated_workload": 80,
+                        "finishedWorkload": 40,
+                        "estimatedWorkload": 80,
                         "deadline": "2022-04-15",
                         "notes": "",
-                        "done": "False"
+                        "done": false
                     }
                 },
                 {
                     "id": "6",
-                    "task": {
+                    "taskData": {
                         "name": "子タスク3",
                         "childrenIdList": [],
-                        "finished_workload": 40,
-                        "estimated_workload": 80,
+                        "finishedWorkload": 40,
+                        "estimatedWorkload": 80,
                         "deadline": "2022-04-15",
                         "notes": "",
-                        "done": "False"
+                        "done": false
                     }
                 }
             ],
@@ -470,14 +470,14 @@
         ],
         "request": {
             "headers": {
-                "user_id": "1"
+                "userId": "1"
             }
         },
         "answer": {
             "task": [
                 {
                     "id": "1",
-                    "task": {
+                    "taskData": {
                         "name": "親タスク1",
                         "childrenIdList": [
                             "2",
@@ -487,24 +487,24 @@
                         "estimatedWorkload": 150,
                         "deadline": "2022-04-09",
                         "notes": "備考を記載",
-                        "done": "False"
+                        "done": false
                     }
                 },
                 {
                     "id": "2",
-                    "task": {
+                    "taskData": {
                         "name": "子タスク1",
                         "childrenIdList": [],
                         "finishedWorkload": 30,
                         "estimatedWorkload": 50,
                         "deadline": "2022-04-08",
                         "notes": "",
-                        "done": "True"
+                        "done": true
                     }
                 },
                 {
                     "id": "3",
-                    "task": {
+                    "taskData": {
                         "name": "子タスク2",
                         "childrenIdList": [
                             "4"
@@ -513,19 +513,19 @@
                         "estimatedWorkload": 60,
                         "deadline": "2022-04-09",
                         "notes": "",
-                        "done": "False"
+                        "done": false
                     }
                 },
                 {
                     "id": "4",
-                    "task": {
+                    "taskData": {
                         "name": "孫タスク1",
                         "childrenIdList": [],
                         "finishedWorkload": 40,
                         "estimatedWorkload": 60,
                         "deadline": "2022-04-09",
                         "notes": "",
-                        "done": "False"
+                        "done": false
                     }
                 }
             ],
