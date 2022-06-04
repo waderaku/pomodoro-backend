@@ -1,0 +1,427 @@
+[
+    {
+        "description": "親タスクの登録ができることのテスト",
+        "db": [
+            {
+                "ID": "1",
+                "DataType": "user",
+                "UserInfo": {
+                    "is_google_linked": false,
+                    "default_length": {
+                        "work": 25,
+                        "rest": 5
+                    }
+                }
+            },
+            {
+                "ID": "1",
+                "DataType": "1_name",
+                "DataValue": "親タスク1"
+            },
+            {
+                "ID": "1",
+                "DataType": "1_deadline",
+                "DataValue": "2022-04-09"
+            },
+            {
+                "ID": "1",
+                "DataType": "1_root",
+                "DataValue": "root_task"
+            },
+            {
+                "ID": "1_task",
+                "DataType": "1",
+                "DataValue": "False",
+                "TaskInfo": {
+                    "name": "親タスク1",
+                    "children_task_id": [],
+                    "finished_workload": 0.0,
+                    "estimated_workload": 150.0,
+                    "deadline": "2022-04-09",
+                    "notes": "備考を記載"
+                }
+            }
+        ],
+        "request": {
+            "user_id": "1",
+            "parent_id": "",
+            "name": "親タスク2",
+            "estimated_workload": 30.0,
+            "deadline": "2022-05-15",
+            "notes": "メモメモ"
+        },
+        "answer": [
+            {
+                "ID": "1",
+                "DataValue": "2022-05-15"
+            },
+            {
+                "ID": "1",
+                "DataValue": "親タスク2"
+            },
+            {
+                "ID": "1",
+                "DataValue": "root_task"
+            },
+            {
+                "ID": "1_task",
+                "DataValue": "False",
+                "TaskInfo": {
+                    "name": "親タスク2",
+                    "children_task_id": [],
+                    "finished_workload": 0.0,
+                    "estimated_workload": 30.0,
+                    "deadline": "2022-05-15",
+                    "notes": "メモメモ"
+                }
+            }
+        ]
+    },
+    {
+        "description": "子タスクの登録ができることのテスト（親タスクの更新はなし）",
+        "db": [
+            {
+                "ID": "1",
+                "DataType": "user",
+                "UserInfo": {
+                    "is_google_linked": false,
+                    "default_length": {
+                        "work": 25,
+                        "rest": 5
+                    }
+                }
+            },
+            {
+                "ID": "1",
+                "DataType": "1_name",
+                "DataValue": "親タスク1"
+            },
+            {
+                "ID": "1",
+                "DataType": "1_deadline",
+                "DataValue": "2022-04-09"
+            },
+            {
+                "ID": "1",
+                "DataType": "1_root",
+                "DataValue": "root_task"
+            },
+            {
+                "ID": "1_task",
+                "DataType": "1",
+                "DataValue": "False",
+                "TaskInfo": {
+                    "name": "親タスク1",
+                    "children_task_id": [],
+                    "finished_workload": 0.0,
+                    "estimated_workload": 150.0,
+                    "deadline": "2022-04-09",
+                    "notes": "備考を記載"
+                }
+            }
+        ],
+        "request": {
+            "user_id": "1",
+            "parent_id": "1",
+            "name": "親タスク2",
+            "estimated_workload": 50.0,
+            "deadline": "2022-04-08",
+            "notes": "メモメモ"
+        },
+        "answer": {
+            "parent_task": {
+                "ID": "1_task",
+                "DataType": "1",
+                "DataValue": "False",
+                "TaskInfo": {
+                    "name": "親タスク1",
+                    "children_task_id": [],
+                    "finished_workload": 0.0,
+                    "estimated_workload": 150.0,
+                    "deadline": "2022-04-09",
+                    "notes": "備考を記載"
+                }
+            },
+            "child_task": {
+                "ID": "1_task",
+                "DataValue": "False",
+                "TaskInfo": {
+                    "name": "親タスク2",
+                    "children_task_id": [],
+                    "finished_workload": 0.0,
+                    "estimated_workload": 50.0,
+                    "deadline": "2022-04-08",
+                    "notes": "メモメモ"
+                }
+            }
+        }
+    },
+    {
+        "description": "子タスクの登録ができることのテスト（親タスクの更新あり・更新が不要になるまで再帰的に更新）",
+        "db": [
+            {
+                "ID": "1",
+                "DataType": "user",
+                "UserInfo": {
+                    "is_google_linked": false,
+                    "default_length": {
+                        "work": 25,
+                        "rest": 5
+                    }
+                }
+            },
+            {
+                "ID": "1",
+                "DataType": "1_name",
+                "DataValue": "親タスク1"
+            },
+            {
+                "ID": "1",
+                "DataType": "1_deadline",
+                "DataValue": "2022-04-09"
+            },
+            {
+                "ID": "1",
+                "DataType": "1_root",
+                "DataValue": "root_task"
+            },
+            {
+                "ID": "1_task",
+                "DataType": "1",
+                "DataValue": "False",
+                "TaskInfo": {
+                    "name": "親タスク1",
+                    "children_task_id": [
+                        "2",
+                        "3"
+                    ],
+                    "finished_workload": 0.0,
+                    "estimated_workload": 150.0,
+                    "deadline": "2022-04-09",
+                    "notes": "備考を記載"
+                }
+            },
+            {
+                "ID": "1",
+                "DataType": "2_name",
+                "DataValue": "子タスク1"
+            },
+            {
+                "ID": "1",
+                "DataType": "2_deadline",
+                "DataValue": "2022-04-08"
+            },
+            {
+                "ID": "1_task",
+                "DataType": "2",
+                "DataValue": "False",
+                "TaskInfo": {
+                    "name": "子タスク1",
+                    "children_task_id": [
+                        "4",
+                        "5"
+                    ],
+                    "finished_workload": 30.0,
+                    "estimated_workload": 50.0,
+                    "deadline": "2022-04-08",
+                    "notes": ""
+                }
+            },
+            {
+                "ID": "1",
+                "DataType": "3_name",
+                "DataValue": "子タスク2"
+            },
+            {
+                "ID": "1",
+                "DataType": "3_deadline",
+                "DataValue": "2022-04-09"
+            },
+            {
+                "ID": "1_task",
+                "DataType": "3",
+                "DataValue": "True",
+                "TaskInfo": {
+                    "name": "子タスク2",
+                    "children_task_id": [],
+                    "finished_workload": 40.0,
+                    "estimated_workload": 60.0,
+                    "deadline": "2022-04-09",
+                    "notes": ""
+                }
+            },
+            {
+                "ID": "1",
+                "DataType": "4_name",
+                "DataValue": "孫タスク1"
+            },
+            {
+                "ID": "1",
+                "DataType": "4_deadline",
+                "DataValue": "2022-04-05"
+            },
+            {
+                "ID": "1_task",
+                "DataType": "4",
+                "DataValue": "False",
+                "TaskInfo": {
+                    "name": "孫タスク1",
+                    "children_task_id": [],
+                    "finished_workload": 40.0,
+                    "estimated_workload": 40.0,
+                    "deadline": "2022-04-05",
+                    "notes": ""
+                }
+            },
+            {
+                "ID": "1",
+                "DataType": "5_name",
+                "DataValue": "孫タスク2"
+            },
+            {
+                "ID": "1",
+                "DataType": "5_deadline",
+                "DataValue": "2022-04-04"
+            },
+            {
+                "ID": "1_task",
+                "DataType": "5",
+                "DataValue": "True",
+                "TaskInfo": {
+                    "name": "孫タスク2",
+                    "children_task_id": [],
+                    "finished_workload": 10.0,
+                    "estimated_workload": 10.0,
+                    "deadline": "2022-04-04",
+                    "notes": ""
+                }
+            }
+        ],
+        "request": {
+            "user_id": "1",
+            "parent_id": "4",
+            "name": "新規タスク",
+            "estimated_workload": 70.0,
+            "deadline": "2022-04-06",
+            "notes": "メモメモ"
+        },
+        "answer": {
+            "task_list": [
+                {
+                    "ID": "1_task",
+                    "DataType": "1",
+                    "DataValue": "False",
+                    "TaskInfo": {
+                        "name": "親タスク1",
+                        "children_task_id": [
+                            "2",
+                            "3"
+                        ],
+                        "finished_workload": 0.0,
+                        "estimated_workload": 150.0,
+                        "deadline": "2022-04-09",
+                        "notes": "備考を記載"
+                    }
+                },
+                {
+                    "ID": "1_task",
+                    "DataType": "2",
+                    "DataValue": "False",
+                    "TaskInfo": {
+                        "name": "子タスク1",
+                        "children_task_id": [
+                            "4",
+                            "5"
+                        ],
+                        "finished_workload": 30.0,
+                        "estimated_workload": 80.0,
+                        "deadline": "2022-04-08",
+                        "notes": ""
+                    }
+                },
+                {
+                    "ID": "1_task",
+                    "DataType": "3",
+                    "DataValue": "True",
+                    "TaskInfo": {
+                        "name": "子タスク2",
+                        "children_task_id": [],
+                        "finished_workload": 40.0,
+                        "estimated_workload": 60.0,
+                        "deadline": "2022-04-09",
+                        "notes": ""
+                    }
+                },
+                {
+                    "ID": "1_task",
+                    "DataType": "4",
+                    "DataValue": "False",
+                    "TaskInfo": {
+                        "name": "孫タスク1",
+                        "children_task_id": [],
+                        "finished_workload": 40.0,
+                        "estimated_workload": 70.0,
+                        "deadline": "2022-04-06",
+                        "notes": ""
+                    }
+                },
+                {
+                    "ID": "1_task",
+                    "DataType": "5",
+                    "DataValue": "True",
+                    "TaskInfo": {
+                        "name": "孫タスク2",
+                        "children_task_id": [],
+                        "finished_workload": 10.0,
+                        "estimated_workload": 10.0,
+                        "deadline": "2022-04-04",
+                        "notes": ""
+                    }
+                },
+                {
+                    "ID": "1_task",
+                    "DataValue": "False",
+                    "TaskInfo": {
+                        "name": "新規タスク",
+                        "children_task_id": [],
+                        "finished_workload": 0.0,
+                        "estimated_workload": 70.0,
+                        "deadline": "2022-04-06",
+                        "notes": "メモメモ"
+                    }
+                }
+            ],
+            "deadline_list": [
+                {
+                    "ID": "1",
+                    "DataType": "1_deadline",
+                    "DataValue": "2022-04-09"
+                },
+                {
+                    "ID": "1",
+                    "DataType": "2_deadline",
+                    "DataValue": "2022-04-08"
+                },
+                {
+                    "ID": "1",
+                    "DataType": "3_deadline",
+                    "DataValue": "2022-04-09"
+                },
+                {
+                    "ID": "1",
+                    "DataType": "4_deadline",
+                    "DataValue": "2022-04-06"
+                },
+                {
+                    "ID": "1",
+                    "DataType": "5_deadline",
+                    "DataValue": "2022-04-04"
+                },
+                {
+                    "ID": "1",
+                    "DataValue": "2022-04-06"
+                }
+            ]
+        }
+    }
+]

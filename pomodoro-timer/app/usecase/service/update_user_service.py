@@ -3,18 +3,17 @@ from typing import Optional
 import inject
 from app.domain.exception.custom_exception import NoExistUserException
 from app.domain.model.value.default_length import DefaultLength
-from app.domain.model.value.google_config import (Calendar, GoogleConfig,
-                                                  TaskList)
+from app.domain.model.value.google_config import Calendar, GoogleConfig, TaskList
 from app.domain.repository.user_repository import UserRepository
 
 
 @inject.params(user_repository=UserRepository)
 def update_user_service(
-    user_repository: UserRepository,
     user_id: str,
     is_google_linked: bool,
     default_length: dict[str, int],
     google_config: Optional[dict[str, dict]] = None,
+    user_repository: Optional[UserRepository] = None,
 ):
     """ユーザ情報の更新を行う
 

@@ -9,3 +9,4 @@ class UpdateTaskRequest(BaseModel):
     estimatedWorkload: int
     notes: str
     done: bool
+    shortcutFlg: bool

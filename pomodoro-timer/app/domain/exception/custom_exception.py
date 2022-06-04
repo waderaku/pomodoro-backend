@@ -31,3 +31,17 @@ class NotSettingConfigException(Exception):
 
     def __init__(self):
         super().__init__("config設定がないためGoogleとリンクさせることは出来ません")
+
+
+class NoExistParentTaskException(Exception):
+    """対象の親タスクが存在しない場合の例外"""
+
+    def __init__(self):
+        super().__init__("対象の親タスクが存在しません")
+
+
+class AlreadyDoneParentTaskException(Exception):
+    """対象の親タスクが既に完了していた場合の例外"""
+
+    def __init__(self):
+        super().__init__("親タスクがすでに完了しています")

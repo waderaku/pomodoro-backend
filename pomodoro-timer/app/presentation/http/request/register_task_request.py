@@ -9,3 +9,4 @@ class RegisterTaskRequest(BaseModel):
     estimatedWorkload: int
     deadline: date
     notes: str
+    shortcutFlg: bool

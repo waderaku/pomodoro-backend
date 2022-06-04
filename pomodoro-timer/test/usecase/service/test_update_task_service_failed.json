@@ -1,0 +1,58 @@
+[
+    {
+        "description": "対象のタスクが存在しない場合登録できないことのテスト",
+        "db": [
+            {
+                "ID": "1",
+                "DataType": "user",
+                "UserInfo": {
+                    "is_google_linked": false,
+                    "default_length": {
+                        "work": 25,
+                        "rest": 5
+                    }
+                }
+            },
+            {
+                "ID": "1",
+                "DataType": "1_name",
+                "DataValue": "親タスク1"
+            },
+            {
+                "ID": "1",
+                "DataType": "1_deadline",
+                "DataValue": "2022-04-09"
+            },
+            {
+                "ID": "1",
+                "DataType": "1_root",
+                "DataValue": "root_task"
+            },
+            {
+                "ID": "1_task",
+                "DataType": "1",
+                "DataValue": "False",
+                "TaskInfo": {
+                    "name": "親タスク1",
+                    "children_task_id": [],
+                    "finished_workload": 0.0,
+                    "estimated_workload": 150.0,
+                    "deadline": "2022-04-09",
+                    "notes": "備考を記載"
+                }
+            }
+        ],
+        "request": {
+            "user_id": "1",
+            "task_id": "2",
+            "name": "テスト対象タスク",
+            "deadline": "2022-04-06",
+            "estimated_workload": 70.0,
+            "notes": "メモメモ",
+            "done": false
+        },
+        "answer": {
+            "error_message": "対象のタスクが存在しません"
+        }
+    }
+]
