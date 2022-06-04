@@ -20,4 +20,4 @@ class Task(BaseModel):
 
 class TaskResponse(BaseModel):
     task: list[Task]
-    rootTaskId: list[str]
+    shortcutTaskId: list[str]

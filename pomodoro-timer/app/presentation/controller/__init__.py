@@ -1,7 +1,11 @@
+from app.presentation.controller.fetch_event_summary_controller import (
+    fetch_event_summary,
+)
 from app.presentation.controller.fetch_task_controller import fetch_task
 from app.presentation.controller.fetch_user_controller import fetch_user
 from app.presentation.controller.register_event_controller import register_event
 from app.presentation.controller.register_task_controller import register_task
 from app.presentation.controller.register_user_controller import register_user
+from app.presentation.controller.search_task_event_controller import search_event_task
 from app.presentation.controller.update_task_controller import update_task
 from app.presentation.controller.update_user_controller import update_user
