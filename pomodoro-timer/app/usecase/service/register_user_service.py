@@ -1,35 +1,24 @@
-import os
-
-import boto3
-from app.usecase.exception.custom_exception import AlreadyExistUserException
-
-table_name = "pomodoro_info"
+import inject
+from app.domain.exception.custom_exception import AlreadyExistUserException
+from app.domain.model.entity.user import User
+from app.domain.repository.user_repository import UserRepository
 
 
-def register_user_service(user_id: str):
+@inject.params(user_repository=UserRepository)
+def register_user_service(user_repository: UserRepository, user_id: str):
     """新規にユーザーデータを登録する
 
     Args:
+        user_repository (UserRepository): ユーザ情報についてDBとやり取りを行うリポジトリ
         user_id (str): ユーザーID
 
     Raises:
         AlreadyExistUserException: 既に対象のユーザーが存在する場合に発行される例外
     """
-    dynamodb = boto3.resource(
-        "dynamodb", endpoint_url=os.environ.get("DYNAMODB_ENDPOINT", None)
-    )
-    table = dynamodb.Table(table_name)
-    response = table.get_item(Key={"ID": user_id, "DataType": "user"})
-
-    if "Item" in response:
+    # 存在チェック
+    if user_repository.find_by_id(user_id=user_id):
         raise AlreadyExistUserException()
 
-    user = {
-        "ID": user_id,
-        "DataType": "user",
-        "UserInfo": {
-            "is_google_linked": False,
-            "default_length": {"work": 25, "rest": 5},
-        },
-    }
-    table.put_item(Item=user)
+    # 新規登録
+    user = User.create(user_id)
+    user_repository.register_user(user=user)
