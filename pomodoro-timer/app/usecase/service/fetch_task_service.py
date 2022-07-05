@@ -1,4 +1,6 @@
 import os
+from dataclasses import dataclass
+from datetime import datetime
 
 import boto3
 from boto3.dynamodb.conditions import Key
@@ -6,7 +8,20 @@ from boto3.dynamodb.conditions import Key
 table_name = "pomodoro_info"
 
 
-def fetch_task_service(user_id: str) -> tuple[list[dict], list[dict]]:
+@dataclass
+class Task:
+    task_id: str
+    name: str
+    shortcut_flg: bool
+    children_task_id: list[str]
+    done: bool
+    finished_workload: int
+    estimated_workload: int
+    deadline: datetime
+    notes: str
+
+
+def fetch_task_service(user_id: str) -> Task:
     dynamodb = boto3.resource(
         "dynamodb", endpoint_url=os.environ.get("DYNAMODB_ENDPOINT", None)
     )

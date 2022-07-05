@@ -6,6 +6,7 @@ from pydantic import BaseModel
 class TaskData(BaseModel):
     name: str
     childrenIdList: list[str]
+    parentId: str
     done: bool
     finishedWorkload: int
     estimatedWorkload: int
