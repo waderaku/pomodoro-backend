@@ -198,20 +198,6 @@
         },
         "answer": [
             {
-                "task_id": "root",
-                "name": "全ての親タスク",
-                "shortcut_flg": false,
-                "done": false,
-                "children_task_id": [
-                    "1",
-                    "5"
-                ],
-                "finished_workload": 130,
-                "estimated_workload": 230,
-                "deadline": "2022-04-15",
-                "notes": ""
-            },
-            {
                 "task_id": "1",
                 "name": "親タスク1",
                 "shortcut_flg": true,
@@ -283,6 +269,20 @@
                 "estimated_workload": 80,
                 "deadline": "2022-04-15",
                 "notes": ""
+            },
+            {
+                "task_id": "root",
+                "name": "全ての親タスク",
+                "shortcut_flg": false,
+                "done": false,
+                "children_task_id": [
+                    "1",
+                    "5"
+                ],
+                "finished_workload": 130,
+                "estimated_workload": 230,
+                "deadline": "2022-04-15",
+                "notes": ""
             }
         ]
     },
@@ -298,6 +298,22 @@
                         "work": 25,
                         "rest": 5
                     }
+                }
+            },
+            {
+                "ID": "1_task",
+                "DataType": "root",
+                "DataValue": "False",
+                "TaskInfo": {
+                    "name": "全ての親タスク",
+                    "shortcut_flg": false,
+                    "children_task_id": [
+                        "1"
+                    ],
+                    "finished_workload": 90,
+                    "estimated_workload": 150,
+                    "deadline": "2022-04-09",
+                    "notes": ""
                 }
             },
             {
@@ -469,19 +485,6 @@
         },
         "answer": [
             {
-                "task_id": "root",
-                "name": "全ての親タスク",
-                "shortcut_flg": false,
-                "done": false,
-                "children_task_id": [
-                    "1"
-                ],
-                "finished_workload": 90,
-                "estimated_workload": 150,
-                "deadline": "2022-04-09",
-                "notes": ""
-            },
-            {
                 "task_id": "1",
                 "name": "親タスク1",
                 "shortcut_flg": true,
@@ -527,6 +530,19 @@
                 "children_task_id": [],
                 "finished_workload": 40,
                 "estimated_workload": 60,
+                "deadline": "2022-04-09",
+                "notes": ""
+            },
+            {
+                "task_id": "root",
+                "name": "全ての親タスク",
+                "shortcut_flg": false,
+                "done": false,
+                "children_task_id": [
+                    "1"
+                ],
+                "finished_workload": 90,
+                "estimated_workload": 150,
                 "deadline": "2022-04-09",
                 "notes": ""
             }

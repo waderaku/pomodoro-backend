@@ -1,4 +1,5 @@
 import json
+from dataclasses import asdict
 from decimal import Decimal
 from pathlib import Path
 from test.common import initial_process
@@ -30,7 +31,7 @@ def test_fetch_task_success(test_data_success: dict):
     request, answer = initial_process(test_data_success)
     task_list = fetch_task_service(**request)
 
-    assert answer == task_list
+    assert answer == [asdict(task) for task in task_list]
 
 
 ##########タスク取得異常系テスト##############
