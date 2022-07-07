@@ -14,11 +14,11 @@ class TaskData(BaseModel):
     notes: str
 
 
-class Task(BaseModel):
+class TaskModel(BaseModel):
     id: str
     taskData: TaskData
 
 
 class TaskResponse(BaseModel):
-    task: list[Task]
+    task: list[TaskModel]
     shortcutTaskId: list[str]
