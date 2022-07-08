@@ -57,8 +57,12 @@ def test_update_for_parent_task_success():
     deadline_list = [
         fetch_deadline_task(request["user_id"], task["DataType"]) for task in task_list
     ]
-    assert answer["task_list"] == task_list
-    assert answer["deadline_list"] == deadline_list
+    expected_task_list = list(filter(lambda record: "TaskInfo" in record, answer))
+    expected_deadline_list = list(
+        filter(lambda record: "_deadline" in record["DataType"], answer)
+    )
+    assert expected_task_list == task_list
+    assert expected_deadline_list == deadline_list
 
 
 ##########ユーザー登録異常系テスト##############
