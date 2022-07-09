@@ -17,6 +17,7 @@ def update_task_service(
     deadline: datetime,
     notes: str,
     done: bool,
+    shortcut_flg: bool,
 ):
 
     dynamodb = boto3.resource(
@@ -52,6 +53,7 @@ def update_task_service(
             "estimated_workload": estimated_workload,
             "deadline": deadline.strftime("%Y-%m-%d"),
             "notes": notes,
+            "shortcut_flg": shortcut_flg,
         }
     )
     update_task_name = {"ID": user_id, "DataType": f"{task_id}_name", "DataValue": name}
