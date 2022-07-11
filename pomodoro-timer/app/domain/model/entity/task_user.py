@@ -15,14 +15,13 @@ class TaskUser:
         user_id: str,
     ) -> TaskUser:
         """ユーザオブジェクトの新規作成をする.
-        初期のタイマー設定時間は作業時間が25分、休憩時間が5分とする
-        Googleとの連携はない状態とする
+        それに伴い、当該ユーザに紐づくrootタスクを作成する
 
         Args:
             user_id (str): 新規作成するユーザのID
 
         Returns:
-            User:新規作成されたユーザオブジェクト
+            TaskUser:新規作成されたユーザ、タスクの集約オブジェクト
         """
         task = Task.create_root(user_id=user_id)
         user = User.create(user_id=user_id)
