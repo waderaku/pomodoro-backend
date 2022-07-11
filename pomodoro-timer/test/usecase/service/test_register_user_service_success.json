@@ -18,17 +18,33 @@
         "request": {
             "user_id": "2"
         },
-        "answer": {
-            "ID": "2",
-            "DataType": "user",
-            "UserInfo": {
-                "is_google_linked": false,
-                "google_config": null,
-                "default_length": {
-                    "work": 25,
-                    "rest": 5
+        "answer": [
+            {
+                "ID": "2",
+                "DataType": "user",
+                "UserInfo": {
+                    "is_google_linked": false,
+                    "google_config": null,
+                    "default_length": {
+                        "work": 25,
+                        "rest": 5
+                    }
+                }
+            },
+            {
+                "ID": "2_task",
+                "DataType": "root",
+                "DataValue": "False",
+                "TaskInfo": {
+                    "name": "全ての親タスク",
+                    "shortcut_flg": false,
+                    "children_task_id": [],
+                    "finished_workload": 0,
+                    "estimated_workload": 0,
+                    "deadline": "",
+                    "notes": ""
                 }
             }
-        }
+        ]
     }
 ]
