@@ -3,7 +3,6 @@ from __future__ import annotations
 from typing import Optional
 
 from app.domain.exception.custom_exception import NotSettingConfigException
-from app.domain.model.entity.task import Task
 from app.domain.model.value.default_length import DefaultLength
 from app.domain.model.value.google_config import GoogleConfig
 
