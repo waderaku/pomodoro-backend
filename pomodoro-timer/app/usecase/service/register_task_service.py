@@ -9,6 +9,7 @@ from app.domain.exception.custom_exception import (
     AlreadyDoneParentTaskException,
     NoExistParentTaskException,
     NoExistUserException,
+    NotShortcutTaskException,
 )
 from boto3.dynamodb.conditions import Key
 
@@ -27,7 +28,11 @@ def register_task_service(
     estimated_workload: int,
     deadline: datetime,
     notes: str,
+    shortcutFlg: bool,
 ):
+    # rootの子タスクの場合shortcutFlgがtrueであること
+    if parent_id == "root" and not shortcutFlg:
+        raise NotShortcutTaskException()
 
     dynamodb = boto3.resource(
         "dynamodb", endpoint_url=os.environ.get("DYNAMODB_ENDPOINT", None)
@@ -45,7 +50,6 @@ def register_task_service(
 
     # 新規追加タスクの作成
     additional_task_id = str(uuid4())
-    root_flg = parent_id == ""
     additional_task = {
         "ID": f"{user_id}_task",
         "DataType": additional_task_id,
@@ -57,6 +61,7 @@ def register_task_service(
             "estimated_workload": estimated_workload,
             "deadline": deadline.strftime("%Y-%m-%d"),
             "notes": notes,
+            "shortcutFlg": shortcutFlg,
         },
     }
     additional_task_deadline = {
@@ -69,33 +74,28 @@ def register_task_service(
         "DataType": f"{additional_task_id}_name",
         "DataValue": name,
     }
-    additional_task_root_flg = {
-        "ID": user_id,
-        "DataType": f"{additional_task_id}_root",
-        "DataValue": "root_task",
-    }
     task_list.append(additional_task)
 
     update_task_list = []
-    if not root_flg:
-        # 親タスクに子タスク情報を追加
-        parent_task_list = list(filter(lambda x: x["DataType"] == parent_id, task_list))
-        if len(parent_task_list) == 0:
-            raise NoExistParentTaskException()
-        parent_task = parent_task_list[0]
-        if parent_task["DataValue"] == "True":
-            raise AlreadyDoneParentTaskException()
+    # 親タスクに子タスク情報を追加
+    parent_task_list = list(
+        filter(lambda x: x["DataType"] == parent_id, task_list))
+    if len(parent_task_list) == 0:
+        raise NoExistParentTaskException()
+    parent_task = parent_task_list[0]
+    if parent_task["DataValue"] == "True":
+        raise AlreadyDoneParentTaskException()
 
-        parent_task["TaskInfo"]["children_task_id"].append(additional_task_id)
+    parent_task["TaskInfo"]["children_task_id"].append(additional_task_id)
 
-        # 新規タスク一覧からツリーを展開
-        task_dict = _create_task_dict(task_list)
-        task_tree = _create_root_tree(task_list)
+    # 新規タスク一覧からツリーを展開
+    task_dict = _create_task_dict(task_list)
+    task_tree = _create_root_tree(task_list)
 
-        # そのツリーから元々のタスクの更新
-        update_task_list = _update_task_tree(
-            task_dict, task_tree, additional_task, user_id
-        )
+    # そのツリーから元々のタスクの更新
+    update_task_list = _update_task_tree(
+        task_dict, task_tree, additional_task, user_id
+    )
 
     with table.batch_writer() as batch:
         for task in update_task_list:
@@ -103,8 +103,6 @@ def register_task_service(
         batch.put_item(Item=additional_task)
         batch.put_item(Item=additional_task_deadline)
         batch.put_item(Item=additional_task_name)
-        if root_flg:
-            batch.put_item(Item=additional_task_root_flg)
 
     return Task(additional_task_id)
 
