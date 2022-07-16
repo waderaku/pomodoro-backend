@@ -204,7 +204,7 @@
             "shortcutFlg": false
         },
         "answer": {
-            "error_message": "親タスクがrootにも関わらずshortcutflgがfalseです"
+            "error_message": "ショートカットフラグが設定されていません"
         }
     }
 ]

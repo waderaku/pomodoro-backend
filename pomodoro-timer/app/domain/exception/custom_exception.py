@@ -48,7 +48,7 @@ class AlreadyDoneParentTaskException(Exception):
 
 
 class NotShortcutTaskException(Exception):
-    """対象の親タスクがrootだった場合にshortcutflgがfalseの例外"""
+    """対象のがrootの直下のタスクだった場合にshortcutタスクではない場合の例外"""
 
     def __init__(self):
-        super().__init__("親タスクがrootにも関わらずshortcutflgがfalseです")
+        super().__init__("ショートカットフラグが設定されていません")
