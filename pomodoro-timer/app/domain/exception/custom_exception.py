@@ -45,3 +45,10 @@ class AlreadyDoneParentTaskException(Exception):
 
     def __init__(self):
         super().__init__("親タスクがすでに完了しています")
+
+
+class NotShortcutTaskException(Exception):
+    """対象のタスクがrootの直下のタスクだった時にshortcutタスクではない場合の例外"""
+
+    def __init__(self):
+        super().__init__("ショートカットフラグが設定されていません")
