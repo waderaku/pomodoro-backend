@@ -4,9 +4,14 @@ from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.domain.repository.task_user_repository import TaskUserRepository
 from app.domain.repository.user_repository import UserRepository
-from app.infrastructure.dynamodb.repository.user_dynamo_repository import \
-    UserDynamoRepository
+from app.infrastructure.dynamodb.repository.task_user_dynamo_repository import (
+    TaskUserDynamoRepository,
+)
+from app.infrastructure.dynamodb.repository.user_dynamo_repository import (
+    UserDynamoRepository,
+)
 from urls import api_routing
 
 app = FastAPI(title="Pomodoro-Timerバックエンド")
@@ -31,6 +36,7 @@ app.add_middleware(
 
 def inject_config(binder: inject.Binder):
     binder.bind(UserRepository, UserDynamoRepository())
+    binder.bind(TaskUserRepository, TaskUserDynamoRepository())
 
 
 if __name__ == "__main__":

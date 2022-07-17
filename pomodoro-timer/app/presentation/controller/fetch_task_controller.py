@@ -1,39 +1,44 @@
-import os
-
-import boto3
-from app.presentation.http.response.task_response import Task, TaskData, TaskResponse
-from boto3.dynamodb.conditions import Key
+from app.presentation.http.response.task_response import (
+    TaskData,
+    TaskModel,
+    TaskResponse,
+)
+from app.usecase.service.fetch_task_service import Task, fetch_task_service
 from fastapi import Header
 
 table_name = "pomodoro_info"
 
 
 async def fetch_task(userId: str = Header(None)) -> list[TaskResponse]:
-    dynamodb = boto3.resource(
-        "dynamodb", endpoint_url=os.environ.get("DYNAMODB_ENDPOINT", None)
-    )
-    table = dynamodb.Table(table_name)
-    task_list = table.query(KeyConditionExpression=Key("ID").eq(f"{userId}_task"))[
-        "Items"
+    task_list = fetch_task_service(user_id=userId)
+    response_task_list = _create_response_task_list(task_list)
+    shortcut_id_list = [task.task_id for task in task_list if task.shortcut_flg]
+
+    return TaskResponse(task=response_task_list, shortcutTaskId=shortcut_id_list)
+
+
+def _create_response_task_list(task_list: list[Task]):
+    # 親タスクIDを作成
+    parent_task_dict = {}
+    for task in task_list:
+        parent_task_dict.update(
+            {child_task: task.task_id for child_task in task.children_task_id}
+        )
+
+    return [
+        _create_task(task, parent_task_dict.get(task.task_id, "")) for task in task_list
     ]
-    root_task_list = table.query(
-        IndexName="dataValueLSIndex",
-        KeyConditionExpression=Key("ID").eq(userId) & Key("DataValue").eq("root_task"),
-    )["Items"]
-    response_task_list = [_create_task(task) for task in task_list]
-    response_root_id = [root_task["DataType"][:-5] for root_task in root_task_list]
-    return TaskResponse(task=response_task_list, rootTaskId=response_root_id)
 
 
-def _create_task(task: dict):
-    task_data_dict = task["TaskInfo"]
+def _create_task(task: Task, parent_task_id: str):
     task_data = TaskData(
-        name=task_data_dict["name"],
-        childrenIdList=task_data_dict["children_task_id"],
-        done=task["DataValue"],
-        finishedWorkload=task_data_dict["finished_workload"],
-        estimatedWorkload=task_data_dict["estimated_workload"],
-        deadline=task_data_dict["deadline"],
-        notes=task_data_dict["notes"],
+        name=task.name,
+        childrenIdList=task.children_task_id,
+        parentId=parent_task_id,
+        done=task.done,
+        finishedWorkload=task.finished_workload,
+        estimatedWorkload=task.estimated_workload,
+        deadline=task.deadline,
+        notes=task.notes,
     )
-    return Task(id=task["DataType"], taskData=task_data)
+    return TaskModel(id=task.task_id, taskData=task_data)

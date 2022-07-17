@@ -15,22 +15,17 @@
             },
             {
                 "ID": "1",
-                "DataType": "1_name",
+                "DataType": "root_name",
                 "DataValue": "親タスク1"
             },
             {
                 "ID": "1",
-                "DataType": "1_deadline",
+                "DataType": "root_deadline",
                 "DataValue": "2022-04-09"
             },
             {
-                "ID": "1",
-                "DataType": "1_root",
-                "DataValue": "root_task"
-            },
-            {
                 "ID": "1_task",
-                "DataType": "1",
+                "DataType": "root",
                 "DataValue": "False",
                 "TaskInfo": {
                     "name": "親タスク1",
@@ -38,17 +33,19 @@
                     "finished_workload": 0.0,
                     "estimated_workload": 150.0,
                     "deadline": "2022-04-09",
-                    "notes": "備考を記載"
+                    "notes": "備考を記載",
+                    "shortcutFlg": true
                 }
             }
         ],
         "request": {
             "user_id": "2",
-            "parent_id": "",
+            "parent_id": "root",
             "name": "新規タスク",
             "estimated_workload": 30,
             "deadline": "2022-05-15",
-            "notes": "メモメモ"
+            "notes": "メモメモ",
+            "shortcutFlg": true
         },
         "answer": {
             "error_message": "当該ユーザーは存在しません"
@@ -70,30 +67,26 @@
             },
             {
                 "ID": "1",
-                "DataType": "1_name",
+                "DataType": "root_name",
                 "DataValue": "親タスク1"
             },
             {
                 "ID": "1",
-                "DataType": "1_deadline",
+                "DataType": "root_deadline",
                 "DataValue": "2022-04-09"
             },
             {
-                "ID": "1",
-                "DataType": "1_root",
-                "DataValue": "root_task"
-            },
-            {
                 "ID": "1_task",
-                "DataType": "1",
+                "DataType": "root",
                 "DataValue": "False",
                 "TaskInfo": {
-                    "name": "親タスク1",
+                    "name": "rootタスク1",
                     "children_task_id": [],
                     "finished_workload": 0.0,
                     "estimated_workload": 150.0,
                     "deadline": "2022-04-09",
-                    "notes": "備考を記載"
+                    "notes": "備考を記載",
+                    "shortcutFlg": true
                 }
             }
         ],
@@ -103,7 +96,8 @@
             "name": "新規タスク",
             "estimated_workload": 30,
             "deadline": "2022-05-15",
-            "notes": "メモメモ"
+            "notes": "メモメモ",
+            "shortcutFlg": false
         },
         "answer": {
             "error_message": "対象の親タスクが存在しません"
@@ -125,43 +119,92 @@
             },
             {
                 "ID": "1",
-                "DataType": "1_name",
+                "DataType": "root_name",
                 "DataValue": "親タスク1"
             },
             {
                 "ID": "1",
-                "DataType": "1_deadline",
+                "DataType": "root_deadline",
                 "DataValue": "2022-04-09"
             },
             {
-                "ID": "1",
-                "DataType": "1_root",
-                "DataValue": "root_task"
-            },
-            {
                 "ID": "1_task",
-                "DataType": "1",
+                "DataType": "root",
                 "DataValue": "True",
                 "TaskInfo": {
-                    "name": "親タスク1",
+                    "name": "rootタスク1",
                     "children_task_id": [],
                     "finished_workload": 0.0,
                     "estimated_workload": 150.0,
                     "deadline": "2022-04-09",
-                    "notes": "備考を記載"
+                    "notes": "備考を記載",
+                    "shortcutFlg": true
                 }
             }
         ],
         "request": {
             "user_id": "1",
-            "parent_id": "1",
+            "parent_id": "root",
             "name": "新規タスク",
             "estimated_workload": 50,
             "deadline": "2022-04-08",
-            "notes": "メモメモ"
+            "notes": "メモメモ",
+            "shortcutFlg": true
         },
         "answer": {
             "error_message": "親タスクがすでに完了しています"
+        }
+    },
+    {
+        "description": "root直下タスクかつ、shortcutflgがfalseの時登録できないこと",
+        "db": [
+            {
+                "ID": "1",
+                "DataType": "user",
+                "UserInfo": {
+                    "is_google_linked": false,
+                    "default_length": {
+                        "work": 25,
+                        "rest": 5
+                    }
+                }
+            },
+            {
+                "ID": "1",
+                "DataType": "root_name",
+                "DataValue": "親タスク1"
+            },
+            {
+                "ID": "1",
+                "DataType": "root_deadline",
+                "DataValue": "2022-04-09"
+            },
+            {
+                "ID": "1_task",
+                "DataType": "root",
+                "DataValue": "False",
+                "TaskInfo": {
+                    "name": "rootタスク1",
+                    "children_task_id": [],
+                    "finished_workload": 0.0,
+                    "estimated_workload": 150.0,
+                    "deadline": "2022-04-09",
+                    "notes": "備考を記載",
+                    "shortcutFlg": true
+                }
+            }
+        ],
+        "request": {
+            "user_id": "1",
+            "parent_id": "root",
+            "name": "新規タスク",
+            "estimated_workload": 50,
+            "deadline": "2022-04-08",
+            "notes": "メモメモ",
+            "shortcutFlg": false
+        },
+        "answer": {
+            "error_message": "ショートカットフラグが設定されていません"
         }
     }
 ]
