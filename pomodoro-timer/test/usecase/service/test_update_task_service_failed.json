@@ -24,11 +24,6 @@
                 "DataValue": "2022-04-09"
             },
             {
-                "ID": "1",
-                "DataType": "1_root",
-                "DataValue": "root_task"
-            },
-            {
                 "ID": "1_task",
                 "DataType": "1",
                 "DataValue": "False",
@@ -38,7 +33,8 @@
                     "finished_workload": 0.0,
                     "estimated_workload": 150.0,
                     "deadline": "2022-04-09",
-                    "notes": "備考を記載"
+                    "notes": "備考を記載",
+                    "shortcutFlg": false
                 }
             }
         ],
@@ -49,7 +45,8 @@
             "deadline": "2022-04-06",
             "estimated_workload": 70.0,
             "notes": "メモメモ",
-            "done": false
+            "done": false,
+            "shortcut_flg": false
         },
         "answer": {
             "error_message": "対象のタスクが存在しません"

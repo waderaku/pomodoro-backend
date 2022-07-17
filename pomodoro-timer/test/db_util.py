@@ -66,3 +66,8 @@ def fetch_user(user_id: str) -> dict:
     return table.get_item(Key={"ID": f"{user_id}", "DataType": "user"}).get(
         "Item", None
     )
+
+
+def scan_table() -> dict:
+    table = _get_pomodoro_table()
+    return table.scan()["Items"]

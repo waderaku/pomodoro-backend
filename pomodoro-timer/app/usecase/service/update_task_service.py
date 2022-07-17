@@ -17,6 +17,7 @@ def update_task_service(
     deadline: datetime,
     notes: str,
     done: bool,
+    shortcut_flg: bool,
 ):
 
     dynamodb = boto3.resource(
@@ -52,6 +53,7 @@ def update_task_service(
             "estimated_workload": estimated_workload,
             "deadline": deadline.strftime("%Y-%m-%d"),
             "notes": notes,
+            "shortcut_flg": shortcut_flg,
         }
     )
     update_task_name = {"ID": user_id, "DataType": f"{task_id}_name", "DataValue": name}
@@ -78,7 +80,6 @@ def _update_task_tree(
 
     update_deadline = update_task["TaskInfo"]["deadline"]
     update_deadline_flg = True
-    update_estimated_workload = update_task["TaskInfo"]["estimated_workload"]
     update_estimated_workload_flg = True
     update_done_flg = update_task["DataValue"] == "False"
     target_task = task_tree.get(update_task["DataType"])

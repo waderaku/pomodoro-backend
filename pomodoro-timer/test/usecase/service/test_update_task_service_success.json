@@ -24,11 +24,6 @@
                 "DataValue": "2022-04-09"
             },
             {
-                "ID": "1",
-                "DataType": "1_root",
-                "DataValue": "root_task"
-            },
-            {
                 "ID": "1_task",
                 "DataType": "1",
                 "DataValue": "True",
@@ -38,7 +33,34 @@
                     "finished_workload": 0.0,
                     "estimated_workload": 150.0,
                     "deadline": "2022-04-09",
-                    "notes": "備考を記載"
+                    "notes": "備考を記載",
+                    "shortcut_flg": false
+                }
+            },
+            {
+                "ID": "1",
+                "DataType": "root_name",
+                "DataValue": "全ての親タスク"
+            },
+            {
+                "ID": "1",
+                "DataType": "root_deadline",
+                "DataValue": "2200-12-31"
+            },
+            {
+                "ID": "1_task",
+                "DataType": "root",
+                "DataValue": "False",
+                "TaskInfo": {
+                    "name": "全ての親タスク",
+                    "children_task_id": [
+                        "1"
+                    ],
+                    "finished_workload": 105120000,
+                    "estimated_workload": 105120000,
+                    "deadline": "2200-12-31",
+                    "notes": "",
+                    "shortcut_flg": false
                 }
             }
         ],
@@ -49,9 +71,21 @@
             "deadline": "2022-04-08",
             "estimated_workload": 100.0,
             "notes": "備考を記載（変更）",
-            "done": false
+            "done": false,
+            "shortcut_flg": true
         },
         "answer": [
+            {
+                "ID": "1",
+                "DataType": "user",
+                "UserInfo": {
+                    "is_google_linked": false,
+                    "default_length": {
+                        "work": 25,
+                        "rest": 5
+                    }
+                }
+            },
             {
                 "ID": "1",
                 "DataType": "1_deadline",
@@ -63,11 +97,6 @@
                 "DataValue": "親タスク1（変更）"
             },
             {
-                "ID": "1",
-                "DataType": "1_root",
-                "DataValue": "root_task"
-            },
-            {
                 "ID": "1_task",
                 "DataType": "1",
                 "DataValue": "False",
@@ -77,7 +106,34 @@
                     "finished_workload": 0.0,
                     "estimated_workload": 100.0,
                     "deadline": "2022-04-08",
-                    "notes": "備考を記載（変更）"
+                    "notes": "備考を記載（変更）",
+                    "shortcut_flg": true
+                }
+            },
+            {
+                "ID": "1",
+                "DataType": "root_name",
+                "DataValue": "全ての親タスク"
+            },
+            {
+                "ID": "1",
+                "DataType": "root_deadline",
+                "DataValue": "2200-12-31"
+            },
+            {
+                "ID": "1_task",
+                "DataType": "root",
+                "DataValue": "False",
+                "TaskInfo": {
+                    "name": "全ての親タスク",
+                    "children_task_id": [
+                        "1"
+                    ],
+                    "finished_workload": 105120000,
+                    "estimated_workload": 105120000,
+                    "deadline": "2200-12-31",
+                    "notes": "",
+                    "shortcut_flg": false
                 }
             }
         ]
@@ -107,11 +163,6 @@
                 "DataValue": "2022-04-09"
             },
             {
-                "ID": "1",
-                "DataType": "1_root",
-                "DataValue": "root_task"
-            },
-            {
                 "ID": "1_task",
                 "DataType": "1",
                 "DataValue": "False",
@@ -124,7 +175,8 @@
                     "finished_workload": 0.0,
                     "estimated_workload": 150.0,
                     "deadline": "2022-04-09",
-                    "notes": "備考を記載"
+                    "notes": "備考を記載",
+                    "shortcut_flg": false
                 }
             },
             {
@@ -150,7 +202,8 @@
                     "finished_workload": 30.0,
                     "estimated_workload": 50.0,
                     "deadline": "2022-04-08",
-                    "notes": ""
+                    "notes": "",
+                    "shortcut_flg": false
                 }
             },
             {
@@ -173,7 +226,8 @@
                     "finished_workload": 40.0,
                     "estimated_workload": 60.0,
                     "deadline": "2022-04-09",
-                    "notes": ""
+                    "notes": "",
+                    "shortcut_flg": false
                 }
             },
             {
@@ -198,7 +252,8 @@
                     "finished_workload": 40.0,
                     "estimated_workload": 40.0,
                     "deadline": "2022-04-05",
-                    "notes": ""
+                    "notes": "",
+                    "shortcut_flg": false
                 }
             },
             {
@@ -221,7 +276,8 @@
                     "finished_workload": 10.0,
                     "estimated_workload": 10.0,
                     "deadline": "2022-04-04",
-                    "notes": ""
+                    "notes": "",
+                    "shortcut_flg": false
                 }
             },
             {
@@ -244,7 +300,34 @@
                     "finished_workload": 10.0,
                     "estimated_workload": 10.0,
                     "deadline": "2022-04-05",
-                    "notes": ""
+                    "notes": "",
+                    "shortcut_flg": false
+                }
+            },
+            {
+                "ID": "1",
+                "DataType": "root_name",
+                "DataValue": "全ての親タスク"
+            },
+            {
+                "ID": "1",
+                "DataType": "root_deadline",
+                "DataValue": "2200-12-31"
+            },
+            {
+                "ID": "1_task",
+                "DataType": "root",
+                "DataValue": "False",
+                "TaskInfo": {
+                    "name": "全ての親タスク",
+                    "children_task_id": [
+                        "1"
+                    ],
+                    "finished_workload": 105120000,
+                    "estimated_workload": 105120000,
+                    "deadline": "2200-12-31",
+                    "notes": "",
+                    "shortcut_flg": false
                 }
             }
         ],
@@ -255,9 +338,21 @@
             "deadline": "2022-04-08",
             "estimated_workload": 50.0,
             "notes": "",
-            "done": true
+            "done": true,
+            "shortcut_flg": true
         },
         "answer": [
+            {
+                "ID": "1",
+                "DataType": "user",
+                "UserInfo": {
+                    "is_google_linked": false,
+                    "default_length": {
+                        "work": 25,
+                        "rest": 5
+                    }
+                }
+            },
             {
                 "ID": "1_task",
                 "DataType": "1",
@@ -271,7 +366,8 @@
                     "finished_workload": 0.0,
                     "estimated_workload": 150.0,
                     "deadline": "2022-04-09",
-                    "notes": "備考を記載"
+                    "notes": "備考を記載",
+                    "shortcut_flg": false
                 }
             },
             {
@@ -287,7 +383,8 @@
                     "finished_workload": 30.0,
                     "estimated_workload": 50.0,
                     "deadline": "2022-04-08",
-                    "notes": ""
+                    "notes": "",
+                    "shortcut_flg": true
                 }
             },
             {
@@ -300,7 +397,8 @@
                     "finished_workload": 40.0,
                     "estimated_workload": 60.0,
                     "deadline": "2022-04-09",
-                    "notes": ""
+                    "notes": "",
+                    "shortcut_flg": false
                 }
             },
             {
@@ -315,7 +413,8 @@
                     "finished_workload": 40.0,
                     "estimated_workload": 40.0,
                     "deadline": "2022-04-05",
-                    "notes": ""
+                    "notes": "",
+                    "shortcut_flg": false
                 }
             },
             {
@@ -328,7 +427,8 @@
                     "finished_workload": 10.0,
                     "estimated_workload": 10.0,
                     "deadline": "2022-04-04",
-                    "notes": ""
+                    "notes": "",
+                    "shortcut_flg": false
                 }
             },
             {
@@ -341,7 +441,34 @@
                     "finished_workload": 10.0,
                     "estimated_workload": 10.0,
                     "deadline": "2022-04-05",
-                    "notes": ""
+                    "notes": "",
+                    "shortcut_flg": false
+                }
+            },
+            {
+                "ID": "1",
+                "DataType": "root_name",
+                "DataValue": "全ての親タスク"
+            },
+            {
+                "ID": "1",
+                "DataType": "root_deadline",
+                "DataValue": "2200-12-31"
+            },
+            {
+                "ID": "1_task",
+                "DataType": "root",
+                "DataValue": "False",
+                "TaskInfo": {
+                    "name": "全ての親タスク",
+                    "children_task_id": [
+                        "1"
+                    ],
+                    "finished_workload": 105120000,
+                    "estimated_workload": 105120000,
+                    "deadline": "2200-12-31",
+                    "notes": "",
+                    "shortcut_flg": false
                 }
             }
         ]
@@ -371,11 +498,6 @@
                 "DataValue": "2022-04-09"
             },
             {
-                "ID": "1",
-                "DataType": "1_root",
-                "DataValue": "root_task"
-            },
-            {
                 "ID": "1_task",
                 "DataType": "1",
                 "DataValue": "True",
@@ -388,7 +510,8 @@
                     "finished_workload": 0.0,
                     "estimated_workload": 150.0,
                     "deadline": "2022-04-09",
-                    "notes": "備考を記載"
+                    "notes": "備考を記載",
+                    "shortcut_flg": false
                 }
             },
             {
@@ -414,7 +537,8 @@
                     "finished_workload": 30.0,
                     "estimated_workload": 50.0,
                     "deadline": "2022-04-08",
-                    "notes": ""
+                    "notes": "",
+                    "shortcut_flg": false
                 }
             },
             {
@@ -437,7 +561,8 @@
                     "finished_workload": 40.0,
                     "estimated_workload": 60.0,
                     "deadline": "2022-04-09",
-                    "notes": ""
+                    "notes": "",
+                    "shortcut_flg": false
                 }
             },
             {
@@ -462,7 +587,8 @@
                     "finished_workload": 40.0,
                     "estimated_workload": 40.0,
                     "deadline": "2022-04-05",
-                    "notes": ""
+                    "notes": "",
+                    "shortcut_flg": false
                 }
             },
             {
@@ -485,7 +611,8 @@
                     "finished_workload": 10.0,
                     "estimated_workload": 10.0,
                     "deadline": "2022-04-04",
-                    "notes": ""
+                    "notes": "",
+                    "shortcut_flg": false
                 }
             },
             {
@@ -508,7 +635,34 @@
                     "finished_workload": 10.0,
                     "estimated_workload": 10.0,
                     "deadline": "2022-04-05",
-                    "notes": ""
+                    "notes": "",
+                    "shortcut_flg": false
+                }
+            },
+            {
+                "ID": "1",
+                "DataType": "root_name",
+                "DataValue": "全ての親タスク"
+            },
+            {
+                "ID": "1",
+                "DataType": "root_deadline",
+                "DataValue": "2200-12-31"
+            },
+            {
+                "ID": "1_task",
+                "DataType": "root",
+                "DataValue": "False",
+                "TaskInfo": {
+                    "name": "全ての親タスク",
+                    "children_task_id": [
+                        "1"
+                    ],
+                    "finished_workload": 105120000,
+                    "estimated_workload": 105120000,
+                    "deadline": "2200-12-31",
+                    "notes": "",
+                    "shortcut_flg": false
                 }
             }
         ],
@@ -519,9 +673,21 @@
             "deadline": "2022-04-05",
             "estimated_workload": 40.0,
             "notes": "",
-            "done": false
+            "done": false,
+            "shortcut_flg": true
         },
         "answer": [
+            {
+                "ID": "1",
+                "DataType": "user",
+                "UserInfo": {
+                    "is_google_linked": false,
+                    "default_length": {
+                        "work": 25,
+                        "rest": 5
+                    }
+                }
+            },
             {
                 "ID": "1_task",
                 "DataType": "1",
@@ -535,7 +701,8 @@
                     "finished_workload": 0.0,
                     "estimated_workload": 150.0,
                     "deadline": "2022-04-09",
-                    "notes": "備考を記載"
+                    "notes": "備考を記載",
+                    "shortcut_flg": false
                 }
             },
             {
@@ -551,7 +718,8 @@
                     "finished_workload": 30.0,
                     "estimated_workload": 50.0,
                     "deadline": "2022-04-08",
-                    "notes": ""
+                    "notes": "",
+                    "shortcut_flg": false
                 }
             },
             {
@@ -564,7 +732,8 @@
                     "finished_workload": 40.0,
                     "estimated_workload": 60.0,
                     "deadline": "2022-04-09",
-                    "notes": ""
+                    "notes": "",
+                    "shortcut_flg": false
                 }
             },
             {
@@ -579,7 +748,8 @@
                     "finished_workload": 40.0,
                     "estimated_workload": 40.0,
                     "deadline": "2022-04-05",
-                    "notes": ""
+                    "notes": "",
+                    "shortcut_flg": true
                 }
             },
             {
@@ -592,7 +762,8 @@
                     "finished_workload": 10.0,
                     "estimated_workload": 10.0,
                     "deadline": "2022-04-04",
-                    "notes": ""
+                    "notes": "",
+                    "shortcut_flg": false
                 }
             },
             {
@@ -605,7 +776,34 @@
                     "finished_workload": 10.0,
                     "estimated_workload": 10.0,
                     "deadline": "2022-04-05",
-                    "notes": ""
+                    "notes": "",
+                    "shortcut_flg": false
+                }
+            },
+            {
+                "ID": "1",
+                "DataType": "root_name",
+                "DataValue": "全ての親タスク"
+            },
+            {
+                "ID": "1",
+                "DataType": "root_deadline",
+                "DataValue": "2200-12-31"
+            },
+            {
+                "ID": "1_task",
+                "DataType": "root",
+                "DataValue": "False",
+                "TaskInfo": {
+                    "name": "全ての親タスク",
+                    "children_task_id": [
+                        "1"
+                    ],
+                    "finished_workload": 105120000,
+                    "estimated_workload": 105120000,
+                    "deadline": "2200-12-31",
+                    "notes": "",
+                    "shortcut_flg": false
                 }
             }
         ]
@@ -635,11 +833,6 @@
                 "DataValue": "2022-04-09"
             },
             {
-                "ID": "1",
-                "DataType": "1_root",
-                "DataValue": "root_task"
-            },
-            {
                 "ID": "1_task",
                 "DataType": "1",
                 "DataValue": "False",
@@ -652,7 +845,8 @@
                     "finished_workload": 0.0,
                     "estimated_workload": 150.0,
                     "deadline": "2022-04-09",
-                    "notes": "備考を記載"
+                    "notes": "備考を記載",
+                    "shortcut_flg": false
                 }
             },
             {
@@ -678,7 +872,8 @@
                     "finished_workload": 30.0,
                     "estimated_workload": 50.0,
                     "deadline": "2022-04-08",
-                    "notes": ""
+                    "notes": "",
+                    "shortcut_flg": false
                 }
             },
             {
@@ -701,7 +896,8 @@
                     "finished_workload": 40.0,
                     "estimated_workload": 60.0,
                     "deadline": "2022-04-09",
-                    "notes": ""
+                    "notes": "",
+                    "shortcut_flg": false
                 }
             },
             {
@@ -726,7 +922,8 @@
                     "finished_workload": 40.0,
                     "estimated_workload": 40.0,
                     "deadline": "2022-04-05",
-                    "notes": ""
+                    "notes": "",
+                    "shortcut_flg": false
                 }
             },
             {
@@ -749,7 +946,8 @@
                     "finished_workload": 10.0,
                     "estimated_workload": 10.0,
                     "deadline": "2022-04-04",
-                    "notes": ""
+                    "notes": "",
+                    "shortcut_flg": false
                 }
             },
             {
@@ -772,7 +970,34 @@
                     "finished_workload": 0.0,
                     "estimated_workload": 10.0,
                     "deadline": "2022-04-05",
-                    "notes": "メモメモ"
+                    "notes": "メモメモ",
+                    "shortcut_flg": false
+                }
+            },
+            {
+                "ID": "1",
+                "DataType": "root_name",
+                "DataValue": "全ての親タスク"
+            },
+            {
+                "ID": "1",
+                "DataType": "root_deadline",
+                "DataValue": "2200-12-31"
+            },
+            {
+                "ID": "1_task",
+                "DataType": "root",
+                "DataValue": "False",
+                "TaskInfo": {
+                    "name": "全ての親タスク",
+                    "children_task_id": [
+                        "1"
+                    ],
+                    "finished_workload": 105120000,
+                    "estimated_workload": 105120000,
+                    "deadline": "2200-12-31",
+                    "notes": "",
+                    "shortcut_flg": false
                 }
             }
         ],
@@ -783,129 +1008,169 @@
             "deadline": "2022-04-06",
             "estimated_workload": 70.0,
             "notes": "メモメモ",
-            "done": false
+            "done": false,
+            "shortcut_flg": true
         },
-        "answer": {
-            "task_list": [
-                {
-                    "ID": "1_task",
-                    "DataType": "1",
-                    "DataValue": "False",
-                    "TaskInfo": {
-                        "name": "親タスク1",
-                        "children_task_id": [
-                            "2",
-                            "3"
-                        ],
-                        "finished_workload": 0.0,
-                        "estimated_workload": 150.0,
-                        "deadline": "2022-04-09",
-                        "notes": "備考を記載"
-                    }
-                },
-                {
-                    "ID": "1_task",
-                    "DataType": "2",
-                    "DataValue": "False",
-                    "TaskInfo": {
-                        "name": "子タスク1",
-                        "children_task_id": [
-                            "4",
-                            "5"
-                        ],
-                        "finished_workload": 30.0,
-                        "estimated_workload": 80.0,
-                        "deadline": "2022-04-08",
-                        "notes": ""
-                    }
-                },
-                {
-                    "ID": "1_task",
-                    "DataType": "3",
-                    "DataValue": "True",
-                    "TaskInfo": {
-                        "name": "子タスク2",
-                        "children_task_id": [],
-                        "finished_workload": 40.0,
-                        "estimated_workload": 60.0,
-                        "deadline": "2022-04-09",
-                        "notes": ""
-                    }
-                },
-                {
-                    "ID": "1_task",
-                    "DataType": "4",
-                    "DataValue": "False",
-                    "TaskInfo": {
-                        "name": "孫タスク1",
-                        "children_task_id": [
-                            "6"
-                        ],
-                        "finished_workload": 40.0,
-                        "estimated_workload": 70.0,
-                        "deadline": "2022-04-06",
-                        "notes": ""
-                    }
-                },
-                {
-                    "ID": "1_task",
-                    "DataType": "5",
-                    "DataValue": "True",
-                    "TaskInfo": {
-                        "name": "孫タスク2",
-                        "children_task_id": [],
-                        "finished_workload": 10.0,
-                        "estimated_workload": 10.0,
-                        "deadline": "2022-04-04",
-                        "notes": ""
-                    }
-                },
-                {
-                    "ID": "1_task",
-                    "DataType": "6",
-                    "DataValue": "False",
-                    "TaskInfo": {
-                        "name": "ひ孫タスク",
-                        "children_task_id": [],
-                        "finished_workload": 0.0,
-                        "estimated_workload": 70.0,
-                        "deadline": "2022-04-06",
-                        "notes": "メモメモ"
+        "answer": [
+            {
+                "ID": "1",
+                "DataType": "user",
+                "UserInfo": {
+                    "is_google_linked": false,
+                    "default_length": {
+                        "work": 25,
+                        "rest": 5
                     }
                 }
-            ],
-            "deadline_list": [
-                {
-                    "ID": "1",
-                    "DataType": "1_deadline",
-                    "DataValue": "2022-04-09"
-                },
-                {
-                    "ID": "1",
-                    "DataType": "2_deadline",
-                    "DataValue": "2022-04-08"
-                },
-                {
-                    "ID": "1",
-                    "DataType": "3_deadline",
-                    "DataValue": "2022-04-09"
-                },
-                {
-                    "ID": "1",
-                    "DataType": "4_deadline",
-                    "DataValue": "2022-04-06"
-                },
-                {
-                    "ID": "1",
-                    "DataType": "5_deadline",
-                    "DataValue": "2022-04-04"
-                },
-                {
-                    "ID": "1",
-                    "DataType": "6_deadline",
-                    "DataValue": "2022-04-06"
+            },
+            {
+                "ID": "1_task",
+                "DataType": "1",
+                "DataValue": "False",
+                "TaskInfo": {
+                    "name": "親タスク1",
+                    "children_task_id": [
+                        "2",
+                        "3"
+                    ],
+                    "finished_workload": 0.0,
+                    "estimated_workload": 150.0,
+                    "deadline": "2022-04-09",
+                    "notes": "備考を記載",
+                    "shortcut_flg": false
                 }
-            ]
-        }
+            },
+            {
+                "ID": "1_task",
+                "DataType": "2",
+                "DataValue": "False",
+                "TaskInfo": {
+                    "name": "子タスク1",
+                    "children_task_id": [
+                        "4",
+                        "5"
+                    ],
+                    "finished_workload": 30.0,
+                    "estimated_workload": 80.0,
+                    "deadline": "2022-04-08",
+                    "notes": "",
+                    "shortcut_flg": false
+                }
+            },
+            {
+                "ID": "1_task",
+                "DataType": "3",
+                "DataValue": "True",
+                "TaskInfo": {
+                    "name": "子タスク2",
+                    "children_task_id": [],
+                    "finished_workload": 40.0,
+                    "estimated_workload": 60.0,
+                    "deadline": "2022-04-09",
+                    "notes": "",
+                    "shortcut_flg": false
+                }
+            },
+            {
+                "ID": "1_task",
+                "DataType": "4",
+                "DataValue": "False",
+                "TaskInfo": {
+                    "name": "孫タスク1",
+                    "children_task_id": [
+                        "6"
+                    ],
+                    "finished_workload": 40.0,
+                    "estimated_workload": 70.0,
+                    "deadline": "2022-04-06",
+                    "notes": "",
+                    "shortcut_flg": false
+                }
+            },
+            {
+                "ID": "1_task",
+                "DataType": "5",
+                "DataValue": "True",
+                "TaskInfo": {
+                    "name": "孫タスク2",
+                    "children_task_id": [],
+                    "finished_workload": 10.0,
+                    "estimated_workload": 10.0,
+                    "deadline": "2022-04-04",
+                    "notes": "",
+                    "shortcut_flg": false
+                }
+            },
+            {
+                "ID": "1_task",
+                "DataType": "6",
+                "DataValue": "False",
+                "TaskInfo": {
+                    "name": "ひ孫タスク",
+                    "children_task_id": [],
+                    "finished_workload": 0.0,
+                    "estimated_workload": 70.0,
+                    "deadline": "2022-04-06",
+                    "notes": "メモメモ",
+                    "shortcut_flg": true
+                }
+            },
+            {
+                "ID": "1",
+                "DataType": "1_deadline",
+                "DataValue": "2022-04-09"
+            },
+            {
+                "ID": "1",
+                "DataType": "2_deadline",
+                "DataValue": "2022-04-08"
+            },
+            {
+                "ID": "1",
+                "DataType": "3_deadline",
+                "DataValue": "2022-04-09"
+            },
+            {
+                "ID": "1",
+                "DataType": "4_deadline",
+                "DataValue": "2022-04-06"
+            },
+            {
+                "ID": "1",
+                "DataType": "5_deadline",
+                "DataValue": "2022-04-04"
+            },
+            {
+                "ID": "1",
+                "DataType": "6_deadline",
+                "DataValue": "2022-04-06"
+            },
+            {
+                "ID": "1",
+                "DataType": "root_name",
+                "DataValue": "全ての親タスク"
+            },
+            {
+                "ID": "1",
+                "DataType": "root_deadline",
+                "DataValue": "2200-12-31"
+            },
+            {
+                "ID": "1_task",
+                "DataType": "root",
+                "DataValue": "False",
+                "TaskInfo": {
+                    "name": "全ての親タスク",
+                    "children_task_id": [
+                        "1"
+                    ],
+                    "finished_workload": 105120000,
+                    "estimated_workload": 105120000,
+                    "deadline": "2200-12-31",
+                    "notes": "",
+                    "shortcut_flg": false
+                }
+            }
+        ]
     }
 ]
