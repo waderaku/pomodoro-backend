@@ -29,7 +29,7 @@ class Task:
         self._notes = notes
 
     @classmethod
-    def create_root(cls, user_id: str):
+    def create_root(cls, user_id: str) -> Task:
         return cls(
             user_id=user_id,
             task_id="root",
