@@ -80,7 +80,6 @@ def _update_task_tree(
 
     update_deadline = update_task["TaskInfo"]["deadline"]
     update_deadline_flg = True
-    update_estimated_workload = update_task["TaskInfo"]["estimated_workload"]
     update_estimated_workload_flg = True
     update_done_flg = update_task["DataValue"] == "False"
     target_task = task_tree.get(update_task["DataType"])

@@ -53,10 +53,7 @@ def fetch_task_by_task_id(user_id: str, task_id: str) -> list[dict]:
     task_name = table.get_item(Key={"ID": user_id, "DataType": f"{task_id}_name"}).get(
         "Item", {}
     )
-    task_root = table.get_item(Key={"ID": user_id, "DataType": f"{task_id}_root"}).get(
-        "Item", {}
-    )
-    return [task_deadline, task_name, task_root, task]
+    return [task_deadline, task_name, task]
 
 
 def fetch_event(user_id: str) -> list[dict]:
@@ -69,3 +66,8 @@ def fetch_user(user_id: str) -> dict:
     return table.get_item(Key={"ID": f"{user_id}", "DataType": "user"}).get(
         "Item", None
     )
+
+
+def scan_table() -> dict:
+    table = _get_pomodoro_table()
+    return table.scan()["Items"]
