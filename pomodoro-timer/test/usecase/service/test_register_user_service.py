@@ -2,7 +2,7 @@ import json
 from decimal import Decimal
 from pathlib import Path
 from test.common import initial_process
-from test.db_util import clear_and_insert, fetch_user
+from test.db_util import clear_and_insert, fetch_task, fetch_user
 
 import pytest
 from app.usecase.service.register_user_service import register_user_service
@@ -31,7 +31,9 @@ def test_register_event_success(test_data_success: dict):
     request, answer = initial_process(test_data_success)
     register_user_service(**request)
     user = fetch_user(request["user_id"])
-    assert answer == user
+    task_list = fetch_task(request["user_id"])
+    assert answer[0] == user
+    assert answer[1:] == task_list
 
 
 ##########ユーザー登録異常系テスト##############
