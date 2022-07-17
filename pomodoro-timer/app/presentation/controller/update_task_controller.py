@@ -16,6 +16,7 @@ async def update_task(id: str, request: UpdateTaskRequest, userId: str = Header(
             request.deadline,
             request.notes,
             request.done,
+            request.shortcutFlg,
         )
     except NoExistTaskException as e:
         raise HTTPException(
