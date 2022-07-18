@@ -4,7 +4,7 @@ from app.domain.exception.custom_exception import (
     AlreadyDoneParentTaskException,
     NoExistParentTaskException,
     NoExistUserException,
-    NotShortcutTaskException
+    NotShortcutTaskException,
 )
 from app.presentation.http.request.register_task_request import RegisterTaskRequest
 from app.usecase.service.register_task_service import register_task_service
@@ -20,7 +20,7 @@ async def register_task(request: RegisterTaskRequest, userId: str = Header(None)
             estimated_workload=request.estimatedWorkload,
             deadline=request.deadline,
             notes=request.notes,
-            shortcutFlg=request.shortcutFlg,
+            shortcut_flg=request.shortcutFlg,
         )
     except (NoExistUserException, NoExistParentTaskException) as e:
         raise HTTPException(

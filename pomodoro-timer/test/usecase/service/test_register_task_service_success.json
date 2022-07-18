@@ -36,7 +36,7 @@
                     "estimated_workload": 230,
                     "deadline": "2022-04-15",
                     "notes": "",
-                    "shortcutFlg": true
+                    "shortcut_flg": true
                 }
             },
             {
@@ -50,7 +50,7 @@
                     "estimated_workload": 150.0,
                     "deadline": "2022-04-09",
                     "notes": "備考を記載",
-                    "shortcutFlg": true
+                    "shortcut_flg": true
                 }
             }
         ],
@@ -61,7 +61,7 @@
             "estimated_workload": 30.0,
             "deadline": "2022-05-15",
             "notes": "メモメモ",
-            "shortcutFlg": true
+            "shortcut_flg": true
         },
         "answer": [
             {
@@ -82,7 +82,7 @@
                     "estimated_workload": 30.0,
                     "deadline": "2022-05-15",
                     "notes": "メモメモ",
-                    "shortcutFlg": true
+                    "shortcut_flg": true
                 }
             }
         ]
@@ -124,7 +124,7 @@
                     "estimated_workload": 230,
                     "deadline": "2022-04-15",
                     "notes": "",
-                    "shortcutFlg": true
+                    "shortcut_flg": true
                 }
             },
             {
@@ -138,7 +138,7 @@
                     "estimated_workload": 150.0,
                     "deadline": "2022-04-09",
                     "notes": "備考を記載",
-                    "shortcutFlg": true
+                    "shortcut_flg": true
                 }
             }
         ],
@@ -149,7 +149,7 @@
             "estimated_workload": 50.0,
             "deadline": "2022-04-08",
             "notes": "メモメモ",
-            "shortcutFlg": false
+            "shortcut_flg": false
         },
         "answer": {
             "parent_task": {
@@ -163,7 +163,7 @@
                     "estimated_workload": 150.0,
                     "deadline": "2022-04-09",
                     "notes": "備考を記載",
-                    "shortcutFlg": true
+                    "shortcut_flg": true
                 }
             },
             "child_task": {
@@ -176,7 +176,7 @@
                     "estimated_workload": 50.0,
                     "deadline": "2022-04-08",
                     "notes": "メモメモ",
-                    "shortcutFlg": false
+                    "shortcut_flg": false
                 }
             }
         }
@@ -219,7 +219,7 @@
                     "estimated_workload": 90.0,
                     "deadline": "2022-04-09",
                     "notes": "備考を記載",
-                    "shortcutFlg": true
+                    "shortcut_flg": true
                 }
             },
             {
@@ -246,7 +246,7 @@
                     "estimated_workload": 30.0,
                     "deadline": "2022-04-08",
                     "notes": "",
-                    "shortcutFlg": true
+                    "shortcut_flg": true
                 }
             },
             {
@@ -270,7 +270,7 @@
                     "estimated_workload": 60.0,
                     "deadline": "2022-04-09",
                     "notes": "",
-                    "shortcutFlg": true
+                    "shortcut_flg": true
                 }
             },
             {
@@ -294,7 +294,7 @@
                     "estimated_workload": 20.0,
                     "deadline": "2022-04-05",
                     "notes": "",
-                    "shortcutFlg": false
+                    "shortcut_flg": false
                 }
             },
             {
@@ -318,7 +318,7 @@
                     "estimated_workload": 10.0,
                     "deadline": "2022-04-04",
                     "notes": "",
-                    "shortcutFlg": false
+                    "shortcut_flg": false
                 }
             }
         ],
@@ -329,7 +329,7 @@
             "estimated_workload": 70.0,
             "deadline": "2022-04-06",
             "notes": "メモメモ",
-            "shortcutFlg": false
+            "shortcut_flg": false
         },
         "answer": {
             "task_list": [
@@ -347,7 +347,7 @@
                         "estimated_workload": 80.0,
                         "deadline": "2022-04-08",
                         "notes": "",
-                        "shortcutFlg": true
+                        "shortcut_flg": true
                     }
                 },
                 {
@@ -361,7 +361,7 @@
                         "estimated_workload": 60.0,
                         "deadline": "2022-04-09",
                         "notes": "",
-                        "shortcutFlg": true
+                        "shortcut_flg": true
                     }
                 },
                 {
@@ -375,7 +375,7 @@
                         "estimated_workload": 70.0,
                         "deadline": "2022-04-06",
                         "notes": "",
-                        "shortcutFlg": false
+                        "shortcut_flg": false
                     }
                 },
                 {
@@ -389,7 +389,7 @@
                         "estimated_workload": 10.0,
                         "deadline": "2022-04-04",
                         "notes": "",
-                        "shortcutFlg": false
+                        "shortcut_flg": false
                     }
                 },
                 {
@@ -406,7 +406,7 @@
                         "estimated_workload": 140.0,
                         "deadline": "2022-04-09",
                         "notes": "備考を記載",
-                        "shortcutFlg": true
+                        "shortcut_flg": true
                     }
                 },
                 {
@@ -419,7 +419,7 @@
                         "estimated_workload": 70.0,
                         "deadline": "2022-04-06",
                         "notes": "メモメモ",
-                        "shortcutFlg": false
+                        "shortcut_flg": false
                     }
                 }
             ],
