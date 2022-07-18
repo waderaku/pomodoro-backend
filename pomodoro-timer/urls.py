@@ -1,19 +1,14 @@
 from fastapi import FastAPI
 
-from app.presentation.controller import (
-    fetch_event_summary,
-    fetch_task,
-    fetch_user,
-    register_event,
-    register_task,
-    register_user,
-    search_event_task,
-    update_task,
-    update_user,
-)
+from app.presentation.controller import (delete_task, fetch_event_summary,
+                                         fetch_task, fetch_user,
+                                         register_event, register_task,
+                                         register_user, search_event_task,
+                                         update_task, update_user)
 from app.presentation.http.common import UserModel
 from app.presentation.http.response import TaskResponse
-from app.presentation.http.response.fetch_event_response import EventSummary, EventTask
+from app.presentation.http.response.fetch_event_response import (EventSummary,
+                                                                 EventTask)
 
 
 def api_routing(app: FastAPI):
@@ -54,6 +49,17 @@ def api_routing(app: FastAPI):
         上回った場合、親タスクの作業見積時間を子タスクの合計作業見積時間に更新する。
         また、今回の更新により、親タスクの期日より本タスクの期日が後日の場合、親タスクの期日を子タスクの期日に更新する。
         本タスクを完了に変更した場合、その子タスクも完了にする。
+        """,
+    )
+    app.add_api_route(
+        "/task/{id}",
+        delete_task,
+        methods=["DELETE"],
+        tags=["task"],
+        description="""
+        タスクのデータを削除する。
+        当該タスクが子タスクも所持していた場合、当該タスクの子タスクも含めてすべて削除する
+        タスクのイベント情報については残る
         """,
     )
     app.add_api_route(
