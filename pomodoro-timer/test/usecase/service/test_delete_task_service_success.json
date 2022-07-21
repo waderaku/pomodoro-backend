@@ -195,25 +195,9 @@
         ],
         "request": {
             "user_id": "1",
-            "id": "4"
+            "task_id": "4"
         },
         "answer": [
-            {
-                "ID": "1_task",
-                "DataType": "root",
-                "DataValue": "False",
-                "TaskInfo": {
-                    "name": "全ての親タスク",
-                    "shortcut_flg": false,
-                    "children_task_id": [
-                        "1"
-                    ],
-                    "finished_workload": 90,
-                    "estimated_workload": 150,
-                    "deadline": "2022-04-09",
-                    "notes": ""
-                }
-            },
             {
                 "ID": "1_task",
                 "DataType": "1",
@@ -290,11 +274,27 @@
                     "deadline": "2022-04-15",
                     "notes": ""
                 }
+            },
+            {
+                "ID": "1_task",
+                "DataType": "root",
+                "DataValue": "False",
+                "TaskInfo": {
+                    "name": "全ての親タスク",
+                    "shortcut_flg": false,
+                    "children_task_id": [
+                        "1"
+                    ],
+                    "finished_workload": 90,
+                    "estimated_workload": 150,
+                    "deadline": "2022-04-09",
+                    "notes": ""
+                }
             }
         ]
     },
     {
-        "description": "タスクが削除されることのテスト",
+        "description": "対象タスクの子タスクも含めて削除され、イベントは上位タスクに全て帰属することのテスト",
         "db": [
             {
                 "ID": "1",
@@ -317,8 +317,8 @@
                     "children_task_id": [
                         "1"
                     ],
-                    "finished_workload": 90,
-                    "estimated_workload": 150,
+                    "finished_workload": 130,
+                    "estimated_workload": 230,
                     "deadline": "2022-04-09",
                     "notes": ""
                 }
@@ -485,29 +485,31 @@
                     "deadline": "2022-04-15",
                     "notes": ""
                 }
+            },
+            {
+                "ID": "1_event",
+                "DataType": "2022-04-18T22:16:39.287433",
+                "DataValue": "5",
+                "EndTime": "2022-04-18T22:41:39.287433"
+            },
+            {
+                "ID": "1_event",
+                "DataType": "2022-04-20T22:16:39.287433",
+                "DataValue": "3",
+                "EndTime": "2022-04-20T22:41:39.287433"
+            },
+            {
+                "ID": "1_event",
+                "DataType": "2022-04-21T22:16:39.287433",
+                "DataValue": "4",
+                "EndTime": "2022-04-21T22:41:39.287433"
             }
         ],
         "request": {
             "user_id": "1",
-            "id": "3"
+            "task_id": "3"
         },
         "answer": [
-            {
-                "ID": "1_task",
-                "DataType": "root",
-                "DataValue": "False",
-                "TaskInfo": {
-                    "name": "全ての親タスク",
-                    "shortcut_flg": false,
-                    "children_task_id": [
-                        "1"
-                    ],
-                    "finished_workload": 90,
-                    "estimated_workload": 150,
-                    "deadline": "2022-04-09",
-                    "notes": ""
-                }
-            },
             {
                 "ID": "1_task",
                 "DataType": "1",
@@ -568,6 +570,40 @@
                     "deadline": "2022-04-15",
                     "notes": ""
                 }
+            },
+            {
+                "ID": "1_task",
+                "DataType": "root",
+                "DataValue": "False",
+                "TaskInfo": {
+                    "name": "全ての親タスク",
+                    "shortcut_flg": false,
+                    "children_task_id": [
+                        "1"
+                    ],
+                    "finished_workload": 130,
+                    "estimated_workload": 230,
+                    "deadline": "2022-04-09",
+                    "notes": ""
+                }
+            },
+            {
+                "ID": "1_event",
+                "DataType": "2022-04-18T22:16:39.287433",
+                "DataValue": "5",
+                "EndTime": "2022-04-18T22:41:39.287433"
+            },
+            {
+                "ID": "1_event",
+                "DataType": "2022-04-20T22:16:39.287433",
+                "DataValue": "1",
+                "EndTime": "2022-04-20T22:41:39.287433"
+            },
+            {
+                "ID": "1_event",
+                "DataType": "2022-04-21T22:16:39.287433",
+                "DataValue": "1",
+                "EndTime": "2022-04-21T22:41:39.287433"
             }
         ]
     }
