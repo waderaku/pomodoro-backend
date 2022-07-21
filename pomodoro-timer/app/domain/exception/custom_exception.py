@@ -52,3 +52,10 @@ class NotShortcutTaskException(Exception):
 
     def __init__(self):
         super().__init__("ショートカットフラグが設定されていません")
+
+
+class DeleteRootTaskException(Exception):
+    """削除対象のタスクがrootタスクである場合の例外"""
+
+    def __init__(self):
+        super().__init__("rootタスクは削除できません")
