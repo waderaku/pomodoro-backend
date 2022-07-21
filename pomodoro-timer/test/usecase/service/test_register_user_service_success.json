@@ -36,12 +36,12 @@
                 "DataType": "root",
                 "DataValue": "False",
                 "TaskInfo": {
-                    "name": "全ての親タスク",
-                    "shortcut_flg": false,
+                    "name": "HOME",
+                    "shortcut_flg": true,
                     "children_task_id": [],
-                    "finished_workload": 0,
-                    "estimated_workload": 0,
-                    "deadline": "",
+                    "finished_workload": 105120000,
+                    "estimated_workload": 105120000,
+                    "deadline": "2200-12-31",
                     "notes": ""
                 }
             }

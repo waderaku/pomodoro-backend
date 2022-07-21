@@ -13,6 +13,8 @@ from app.domain.exception.custom_exception import (
 )
 from boto3.dynamodb.conditions import Key
 
+from app.domain.model.entity.task import ROOT_TASK_ID
+
 table_name = "pomodoro_info"
 
 
@@ -31,7 +33,7 @@ def register_task_service(
     shortcut_flg: bool,
 ):
     # rootの子タスクの場合shortcut_flgがtrueであること
-    if parent_id == "root" and not shortcut_flg:
+    if parent_id == ROOT_TASK_ID and not shortcut_flg:
         raise NotShortcutTaskException()
 
     dynamodb = boto3.resource(

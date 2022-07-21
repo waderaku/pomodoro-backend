@@ -40,7 +40,7 @@
             {
                 "ID": "1",
                 "DataType": "root_name",
-                "DataValue": "全ての親タスク"
+                "DataValue": "HOME"
             },
             {
                 "ID": "1",
@@ -52,7 +52,7 @@
                 "DataType": "root",
                 "DataValue": "False",
                 "TaskInfo": {
-                    "name": "全ての親タスク",
+                    "name": "HOME",
                     "children_task_id": [
                         "1"
                     ],
@@ -60,7 +60,7 @@
                     "estimated_workload": 105120000,
                     "deadline": "2200-12-31",
                     "notes": "",
-                    "shortcut_flg": false
+                    "shortcut_flg": true
                 }
             }
         ],
@@ -113,7 +113,7 @@
             {
                 "ID": "1",
                 "DataType": "root_name",
-                "DataValue": "全ての親タスク"
+                "DataValue": "HOME"
             },
             {
                 "ID": "1",
@@ -125,7 +125,7 @@
                 "DataType": "root",
                 "DataValue": "False",
                 "TaskInfo": {
-                    "name": "全ての親タスク",
+                    "name": "HOME",
                     "children_task_id": [
                         "1"
                     ],
@@ -133,7 +133,7 @@
                     "estimated_workload": 105120000,
                     "deadline": "2200-12-31",
                     "notes": "",
-                    "shortcut_flg": false
+                    "shortcut_flg": true
                 }
             }
         ]
@@ -307,7 +307,7 @@
             {
                 "ID": "1",
                 "DataType": "root_name",
-                "DataValue": "全ての親タスク"
+                "DataValue": "HOME"
             },
             {
                 "ID": "1",
@@ -319,7 +319,7 @@
                 "DataType": "root",
                 "DataValue": "False",
                 "TaskInfo": {
-                    "name": "全ての親タスク",
+                    "name": "HOME",
                     "children_task_id": [
                         "1"
                     ],
@@ -327,7 +327,7 @@
                     "estimated_workload": 105120000,
                     "deadline": "2200-12-31",
                     "notes": "",
-                    "shortcut_flg": false
+                    "shortcut_flg": true
                 }
             }
         ],
@@ -448,7 +448,7 @@
             {
                 "ID": "1",
                 "DataType": "root_name",
-                "DataValue": "全ての親タスク"
+                "DataValue": "HOME"
             },
             {
                 "ID": "1",
@@ -460,7 +460,7 @@
                 "DataType": "root",
                 "DataValue": "False",
                 "TaskInfo": {
-                    "name": "全ての親タスク",
+                    "name": "HOME",
                     "children_task_id": [
                         "1"
                     ],
@@ -468,7 +468,7 @@
                     "estimated_workload": 105120000,
                     "deadline": "2200-12-31",
                     "notes": "",
-                    "shortcut_flg": false
+                    "shortcut_flg": true
                 }
             }
         ]
@@ -642,7 +642,7 @@
             {
                 "ID": "1",
                 "DataType": "root_name",
-                "DataValue": "全ての親タスク"
+                "DataValue": "HOME"
             },
             {
                 "ID": "1",
@@ -654,7 +654,7 @@
                 "DataType": "root",
                 "DataValue": "False",
                 "TaskInfo": {
-                    "name": "全ての親タスク",
+                    "name": "HOME",
                     "children_task_id": [
                         "1"
                     ],
@@ -662,7 +662,7 @@
                     "estimated_workload": 105120000,
                     "deadline": "2200-12-31",
                     "notes": "",
-                    "shortcut_flg": false
+                    "shortcut_flg": true
                 }
             }
         ],
@@ -783,7 +783,7 @@
             {
                 "ID": "1",
                 "DataType": "root_name",
-                "DataValue": "全ての親タスク"
+                "DataValue": "HOME"
             },
             {
                 "ID": "1",
@@ -795,7 +795,7 @@
                 "DataType": "root",
                 "DataValue": "False",
                 "TaskInfo": {
-                    "name": "全ての親タスク",
+                    "name": "HOME",
                     "children_task_id": [
                         "1"
                     ],
@@ -803,7 +803,7 @@
                     "estimated_workload": 105120000,
                     "deadline": "2200-12-31",
                     "notes": "",
-                    "shortcut_flg": false
+                    "shortcut_flg": true
                 }
             }
         ]
@@ -977,7 +977,7 @@
             {
                 "ID": "1",
                 "DataType": "root_name",
-                "DataValue": "全ての親タスク"
+                "DataValue": "HOME"
             },
             {
                 "ID": "1",
@@ -989,7 +989,7 @@
                 "DataType": "root",
                 "DataValue": "False",
                 "TaskInfo": {
-                    "name": "全ての親タスク",
+                    "name": "HOME",
                     "children_task_id": [
                         "1"
                     ],
@@ -997,7 +997,7 @@
                     "estimated_workload": 105120000,
                     "deadline": "2200-12-31",
                     "notes": "",
-                    "shortcut_flg": false
+                    "shortcut_flg": true
                 }
             }
         ],
@@ -1148,7 +1148,7 @@
             {
                 "ID": "1",
                 "DataType": "root_name",
-                "DataValue": "全ての親タスク"
+                "DataValue": "HOME"
             },
             {
                 "ID": "1",
@@ -1160,7 +1160,7 @@
                 "DataType": "root",
                 "DataValue": "False",
                 "TaskInfo": {
-                    "name": "全ての親タスク",
+                    "name": "HOME",
                     "children_task_id": [
                         "1"
                     ],
@@ -1168,7 +1168,7 @@
                     "estimated_workload": 105120000,
                     "deadline": "2200-12-31",
                     "notes": "",
-                    "shortcut_flg": false
+                    "shortcut_flg": true
                 }
             }
         ]
