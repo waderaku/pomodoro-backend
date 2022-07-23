@@ -236,9 +236,7 @@
                 "TaskInfo": {
                     "name": "子タスク2",
                     "shortcut_flg": false,
-                    "children_task_id": [
-                        "4"
-                    ],
+                    "children_task_id": [],
                     "finished_workload": 40,
                     "estimated_workload": 60,
                     "deadline": "2022-04-09",
@@ -518,8 +516,7 @@
                     "name": "親タスク1",
                     "shortcut_flg": true,
                     "children_task_id": [
-                        "2",
-                        "3"
+                        "2"
                     ],
                     "finished_workload": 90,
                     "estimated_workload": 150,

@@ -1,9 +1,11 @@
 import os
 
 import boto3
-from app.domain.exception.custom_exception import (DeleteRootTaskException,
-                                                   NoExistTaskException,
-                                                   NoExistUserException)
+from app.domain.exception.custom_exception import (
+    DeleteRootTaskException,
+    NoExistTaskException,
+    NoExistUserException,
+)
 from boto3.dynamodb.conditions import Key
 
 table_name = "pomodoro_info"
@@ -33,39 +35,42 @@ def delete_task_service(user_id: str, task_id: str):
     ]
     delete_task_list = _get_delete_task(task_list, task_id)
 
-    update_event_list = _get_update_event(
-        event_list, task_list, delete_task_list, task_id
-    )
+    update_list = _get_update_data(event_list, task_list, delete_task_list, task_id)
     with table.batch_writer() as batch:
         for delete_task in delete_task_list:
             batch.delete_item(
                 Key={"ID": delete_task["ID"], "DataType": delete_task["DataType"]}
             )
 
-        for update_event in update_event_list:
-            batch.put_item(Item=update_event)
+        for update_data in update_list:
+            batch.put_item(Item=update_data)
 
 
-def _get_update_event(
+def _get_update_data(
     event_list: list[dict],
     task_list: list[dict],
     delete_task_list: list[dict],
     task_id: str,
 ) -> list[dict]:
-    parent_task = None
-    for task in task_list:
-        if task_id in task["TaskInfo"]["children_task_id"]:
-            parent_task = task
-            break
+    parent_task = _get_parent_task(task_list, task_id)
 
     delete_task_id_list = [delete_task["DataType"] for delete_task in delete_task_list]
 
-    update_event_list = [
+    update_list = [
         {**event, "DataValue": parent_task["DataType"]}
         for event in event_list
         if event["DataValue"] in delete_task_id_list
     ]
-    return update_event_list
+
+    parent_task["TaskInfo"]["children_task_id"].remove(task_id)
+    update_list.append(parent_task)
+    return update_list
+
+
+def _get_parent_task(task_list: list[dict], task_id: str) -> dict:
+    for task in task_list:
+        if task_id in task["TaskInfo"]["children_task_id"]:
+            return task
 
 
 def _get_delete_task(task_list: list[dict], delete_task_id: str) -> list[dict]:
