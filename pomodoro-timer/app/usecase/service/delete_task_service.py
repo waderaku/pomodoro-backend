@@ -1,5 +1,4 @@
 import os
-from turtle import xcor
 
 import boto3
 from app.domain.exception.custom_exception import (DeleteRootTaskException,
@@ -32,9 +31,9 @@ def delete_task_service(user_id: str, task_id: str):
     event_list = table.query(KeyConditionExpression=Key("ID").eq(f"{user_id}_event"))[
         "Items"
     ]
-    delete_task_list = get_delete_task(task_list, task_id)
+    delete_task_list = _get_delete_task(task_list, task_id)
 
-    update_event_list = get_update_event(
+    update_event_list = _get_update_event(
         event_list, task_list, delete_task_list, task_id
     )
     with table.batch_writer() as batch:
@@ -47,7 +46,7 @@ def delete_task_service(user_id: str, task_id: str):
             batch.put_item(Item=update_event)
 
 
-def get_update_event(
+def _get_update_event(
     event_list: list[dict],
     task_list: list[dict],
     delete_task_list: list[dict],
@@ -69,7 +68,7 @@ def get_update_event(
     return update_event_list
 
 
-def get_delete_task(task_list: list[dict], delete_task_id: str) -> list[dict]:
+def _get_delete_task(task_list: list[dict], delete_task_id: str) -> list[dict]:
     task_dict = _create_task_dict(task_list)
     delete_task_list = []
     _add_delete_task(task_dict, delete_task_id, delete_task_list)
