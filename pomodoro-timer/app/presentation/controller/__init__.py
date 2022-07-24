@@ -1,3 +1,4 @@
+from app.presentation.controller.delete_task_controller import delete_task
 from app.presentation.controller.fetch_event_summary_controller import (
     fetch_event_summary,
 )
