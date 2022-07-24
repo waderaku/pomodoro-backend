@@ -36,7 +36,7 @@
                     "estimated_workload": 105120000,
                     "deadline": "2200-12-31",
                     "notes": "",
-                    "shortcut_flg": true
+                    "shortcut_flg": false
                 }
             },
             {
@@ -124,7 +124,7 @@
                     "estimated_workload": 105120000,
                     "deadline": "2200-12-31",
                     "notes": "",
-                    "shortcut_flg": true
+                    "shortcut_flg": false
                 }
             },
             {
@@ -219,7 +219,7 @@
                     "estimated_workload": 105120000,
                     "deadline": "2200-12-31",
                     "notes": "備考を記載",
-                    "shortcut_flg": true
+                    "shortcut_flg": false
                 }
             },
             {
@@ -406,7 +406,7 @@
                         "estimated_workload": 105120000,
                         "deadline": "2200-12-31",
                         "notes": "備考を記載",
-                        "shortcut_flg": true
+                        "shortcut_flg": false
                     }
                 },
                 {
