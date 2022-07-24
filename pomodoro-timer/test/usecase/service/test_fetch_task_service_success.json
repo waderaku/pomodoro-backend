@@ -30,7 +30,7 @@
                 "DataValue": "False",
                 "TaskInfo": {
                     "name": "HOME",
-                    "shortcut_flg": true,
+                    "shortcut_flg": false,
                     "children_task_id": [
                         "1",
                         "5"
@@ -273,7 +273,7 @@
             {
                 "task_id": "root",
                 "name": "HOME",
-                "shortcut_flg": true,
+                "shortcut_flg": false,
                 "done": false,
                 "children_task_id": [
                     "1",
@@ -306,7 +306,7 @@
                 "DataValue": "False",
                 "TaskInfo": {
                     "name": "HOME",
-                    "shortcut_flg": true,
+                    "shortcut_flg": false,
                     "children_task_id": [
                         "1"
                     ],
@@ -536,7 +536,7 @@
             {
                 "task_id": "root",
                 "name": "HOME",
-                "shortcut_flg": true,
+                "shortcut_flg": false,
                 "done": false,
                 "children_task_id": [
                     "1"
