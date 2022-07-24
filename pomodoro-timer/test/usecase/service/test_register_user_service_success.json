@@ -37,7 +37,7 @@
                 "DataValue": "False",
                 "TaskInfo": {
                     "name": "HOME",
-                    "shortcut_flg": true,
+                    "shortcut_flg": false,
                     "children_task_id": [],
                     "finished_workload": 105120000,
                     "estimated_workload": 105120000,
