@@ -24,11 +24,6 @@
                 "DataValue": "2022-04-09"
             },
             {
-                "ID": "1",
-                "DataType": "1_root",
-                "DataValue": "root_task"
-            },
-            {
                 "ID": "1_task",
                 "DataType": "1",
                 "DataValue": "False",
@@ -75,11 +70,6 @@
                 "ID": "1",
                 "DataType": "1_deadline",
                 "DataValue": "2022-04-09"
-            },
-            {
-                "ID": "1",
-                "DataType": "1_root",
-                "DataValue": "root_task"
             },
             {
                 "ID": "1_task",
