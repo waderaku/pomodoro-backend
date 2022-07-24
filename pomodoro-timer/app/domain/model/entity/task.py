@@ -39,7 +39,7 @@ class Task:
             user_id=user_id,
             task_id=ROOT_TASK_ID,
             name=ROOT_TASK_NAME,
-            shortcut_flg=True,
+            shortcut_flg=False,
             children_task_id=[],
             done=False,
             finished_workload=ROOT_TASK_WORKLOAD,
