@@ -51,5 +51,84 @@
         "answer": {
             "error_message": "対象のタスクが存在しません"
         }
+    },
+    {
+        "description": "rootタスクは更新できないことのテスト",
+        "db": [
+            {
+                "ID": "1",
+                "DataType": "user",
+                "UserInfo": {
+                    "is_google_linked": false,
+                    "default_length": {
+                        "work": 25,
+                        "rest": 5
+                    }
+                }
+            },
+            {
+                "ID": "1",
+                "DataType": "root_name",
+                "DataValue": "HOME"
+            },
+            {
+                "ID": "1",
+                "DataType": "root_deadline",
+                "DataValue": "2200-12-31"
+            },
+            {
+                "ID": "1_task",
+                "DataType": "root",
+                "DataValue": "False",
+                "TaskInfo": {
+                    "name": "HOME",
+                    "children_task_id": [
+                        "1"
+                    ],
+                    "finished_workload": 105120000,
+                    "estimated_workload": 105120000,
+                    "deadline": "2200-12-31",
+                    "notes": "",
+                    "shortcut_flg": false
+                }
+            },
+            {
+                "ID": "1",
+                "DataType": "1_name",
+                "DataValue": "親タスク1"
+            },
+            {
+                "ID": "1",
+                "DataType": "1_deadline",
+                "DataValue": "2022-04-09"
+            },
+            {
+                "ID": "1_task",
+                "DataType": "1",
+                "DataValue": "False",
+                "TaskInfo": {
+                    "name": "親タスク1",
+                    "children_task_id": [],
+                    "finished_workload": 0.0,
+                    "estimated_workload": 150.0,
+                    "deadline": "2022-04-09",
+                    "notes": "備考を記載",
+                    "shortcut_flg": false
+                }
+            }
+        ],
+        "request": {
+            "user_id": "1",
+            "task_id": "root",
+            "name": "テスト対象タスク",
+            "deadline": "2022-04-06",
+            "estimated_workload": 70.0,
+            "notes": "メモメモ",
+            "done": false,
+            "shortcut_flg": false
+        },
+        "answer": {
+            "error_message": "rootタスクは更新できません"
+        }
     }
 ]
