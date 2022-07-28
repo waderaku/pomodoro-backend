@@ -13,6 +13,7 @@ class UserInfoModel:
     is_google_linked: bool
     default_length: dict
     google_config: Optional[dict] = None
+    password: Optional[str] = None
 
 
 @dataclass
@@ -44,6 +45,7 @@ class UserModel:
             is_google_linked=user_info.is_google_linked,
             default_length=default_length,
             google_config=google_config,
+            password=self.UserInfo.password,
         )
 
     @classmethod
@@ -59,5 +61,6 @@ class UserModel:
             if not user._google_config
             else asdict(user._google_config),
             default_length=asdict(user._default_length),
+            password=user._password,
         )
         return cls(ID=user._user_id, UserInfo=user_info_model)

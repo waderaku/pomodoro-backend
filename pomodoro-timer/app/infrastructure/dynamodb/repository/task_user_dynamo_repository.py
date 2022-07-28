@@ -4,8 +4,7 @@ from app.domain.model.entity.task_user import TaskUser
 from app.domain.repository.task_user_repository import TaskUserRepository
 from app.infrastructure.dynamodb.model.task_model import TaskModel
 from app.infrastructure.dynamodb.model.user_model import UserModel
-from app.infrastructure.dynamodb.repository.dynamo_repository import \
-    DynamoRepository
+from app.infrastructure.dynamodb.repository.dynamo_repository import DynamoRepository
 
 
 class TaskUserDynamoRepository(TaskUserRepository, DynamoRepository):

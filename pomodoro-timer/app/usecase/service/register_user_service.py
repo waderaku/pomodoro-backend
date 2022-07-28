@@ -10,14 +10,15 @@ from app.domain.repository.user_repository import UserRepository
 @inject.params(task_user_repository=TaskUserRepository, user_repository=UserRepository)
 def register_user_service(
     user_id: str,
+    password: str,
     task_user_repository: Optional[TaskUserRepository] = None,
     user_repository: Optional[UserRepository] = None,
 ):
     """新規にユーザーデータを登録する
 
     Args:
-        task_user_repository (TaskUserRepository): ユーザ情報についてDBとやり取りを行うリポジトリ
         user_id (str): ユーザーID
+        password(str): パスワード、Cognito連携時に削除
 
     Raises:
         AlreadyExistUserException: 既に対象のユーザーが存在する場合に発行される例外
@@ -27,5 +28,5 @@ def register_user_service(
         raise AlreadyExistUserException()
 
     # 新規登録
-    task_user = TaskUser.create(user_id)
+    task_user = TaskUser.create(user_id, password=password)
     task_user_repository.register_task_user(task_user=task_user)
