@@ -16,7 +16,8 @@
             }
         ],
         "request": {
-            "user_id": "1"
+            "user_id": "1",
+            "password": "P@ssw0rd"
         },
         "answer": {
             "error_message": "当該ユーザーは既に存在します"

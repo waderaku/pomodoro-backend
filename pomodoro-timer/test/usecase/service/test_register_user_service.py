@@ -1,3 +1,4 @@
+import hashlib
 import json
 from decimal import Decimal
 from pathlib import Path
@@ -32,6 +33,10 @@ def test_register_event_success(test_data_success: dict):
     register_user_service(**request)
     user = fetch_user(request["user_id"])
     task_list = fetch_task(request["user_id"])
+    # passwordハッシュ化
+    answer[0]["UserInfo"]["password"] = hashlib.sha256(
+        answer[0]["UserInfo"]["password"].encode()
+    ).hexdigest()
     assert answer[0] == user
     assert answer[1:] == task_list
 
