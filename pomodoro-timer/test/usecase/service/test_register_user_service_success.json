@@ -17,14 +17,14 @@
         ],
         "request": {
             "user_id": "2",
-            "password": "P@ssw0rd"
+            "password": "Passw0rd"
         },
         "answer": [
             {
                 "ID": "2",
                 "DataType": "user",
                 "UserInfo": {
-                    "password": "P@ssw0rd",
+                    "password": "Passw0rd",
                     "is_google_linked": false,
                     "google_config": null,
                     "default_length": {

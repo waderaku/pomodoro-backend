@@ -6,6 +6,7 @@ from typing import Optional
 from app.domain.exception.custom_exception import NotSettingConfigException
 from app.domain.model.value.default_length import DefaultLength
 from app.domain.model.value.google_config import GoogleConfig
+from app.domain.model.value.password import Password
 
 
 class User:
@@ -15,7 +16,7 @@ class User:
         is_google_linked: bool,
         default_length: DefaultLength,
         google_config: Optional[GoogleConfig],
-        password: Optional[str] = None,
+        password: Optional[Password] = None,
     ):
         self._user_id = user_id
         self._password = password
@@ -36,8 +37,7 @@ class User:
         Returns:
             User:新規作成されたユーザオブジェクト
         """
-        # パスワードのハッシュ化
-        hashed_password = hashlib.sha256(plain_password.encode()).hexdigest()
+        hashed_password = Password(value=plain_password, is_hashed=False)
 
         return cls(
             user_id=user_id,

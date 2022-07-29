@@ -6,6 +6,7 @@ from typing import Optional
 from app.domain.model.entity.user import User
 from app.domain.model.value.default_length import DefaultLength
 from app.domain.model.value.google_config import Calendar, GoogleConfig, TaskList
+from app.domain.model.value.password import Password
 
 
 @dataclass
@@ -45,7 +46,7 @@ class UserModel:
             is_google_linked=user_info.is_google_linked,
             default_length=default_length,
             google_config=google_config,
-            password=self.UserInfo.password,
+            password=Password(self.UserInfo.password, is_hashed=True),
         )
 
     @classmethod
@@ -61,6 +62,6 @@ class UserModel:
             if not user._google_config
             else asdict(user._google_config),
             default_length=asdict(user._default_length),
-            password=user._password,
+            password=user._password.value,
         )
         return cls(ID=user._user_id, UserInfo=user_info_model)

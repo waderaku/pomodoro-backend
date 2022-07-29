@@ -12,7 +12,7 @@
                         "work": 25,
                         "rest": 5
                     },
-                    "password": "P@ssw0rd"
+                    "password": "Passw0rd"
                 }
             }
         ],
@@ -35,7 +35,7 @@
                     "work": 25,
                     "rest": 5
                 },
-                "password": "P@ssw0rd"
+                "password": "Passw0rd"
             }
         }
     },
@@ -52,7 +52,7 @@
                         "work": 25,
                         "rest": 5
                     },
-                    "password": "P@ssw0rd"
+                    "password": "Passw0rd"
                 }
             }
         ],
@@ -93,7 +93,7 @@
                         "name": "タスク一覧A"
                     }
                 },
-                "password": "P@ssw0rd"
+                "password": "Passw0rd"
             }
         }
     }
