@@ -16,10 +16,131 @@
             }
         ],
         "request": {
-            "user_id": "1"
+            "user_id": "1",
+            "password": "Passw0rd"
         },
         "answer": {
             "error_message": "当該ユーザーは既に存在します"
+        }
+    },
+    {
+        "description": "パスワードが8文字未満の場合新規登録されないことのテスト",
+        "db": [
+            {
+                "ID": "1",
+                "DataType": "user",
+                "UserInfo": {
+                    "is_google_linked": false,
+                    "google_config": null,
+                    "default_length": {
+                        "work": 25,
+                        "rest": 5
+                    }
+                }
+            }
+        ],
+        "request": {
+            "user_id": "2",
+            "password": "Passw0r"
+        },
+        "answer": {
+            "error_message": "パスワードは大文字小文字を含んだ英数字8文字以上24文字以内で入力してください"
+        }
+    },
+    {
+        "description": "パスワードが25文字以上の場合新規登録されないことのテスト",
+        "db": [
+            {
+                "ID": "1",
+                "DataType": "user",
+                "UserInfo": {
+                    "is_google_linked": false,
+                    "google_config": null,
+                    "default_length": {
+                        "work": 25,
+                        "rest": 5
+                    }
+                }
+            }
+        ],
+        "request": {
+            "user_id": "2",
+            "password": "Passw0rd12345678901234567"
+        },
+        "answer": {
+            "error_message": "パスワードは大文字小文字を含んだ英数字8文字以上24文字以内で入力してください"
+        }
+    },
+    {
+        "description": "パスワードが小文字英数字の場合新規登録されないことのテスト",
+        "db": [
+            {
+                "ID": "1",
+                "DataType": "user",
+                "UserInfo": {
+                    "is_google_linked": false,
+                    "google_config": null,
+                    "default_length": {
+                        "work": 25,
+                        "rest": 5
+                    }
+                }
+            }
+        ],
+        "request": {
+            "user_id": "2",
+            "password": "pass1234"
+        },
+        "answer": {
+            "error_message": "パスワードは大文字小文字を含んだ英数字8文字以上24文字以内で入力してください"
+        }
+    },
+    {
+        "description": "パスワードが英字のみの場合新規登録されないことのテスト",
+        "db": [
+            {
+                "ID": "1",
+                "DataType": "user",
+                "UserInfo": {
+                    "is_google_linked": false,
+                    "google_config": null,
+                    "default_length": {
+                        "work": 25,
+                        "rest": 5
+                    }
+                }
+            }
+        ],
+        "request": {
+            "user_id": "2",
+            "password": "password"
+        },
+        "answer": {
+            "error_message": "パスワードは大文字小文字を含んだ英数字8文字以上24文字以内で入力してください"
+        }
+    },
+    {
+        "description": "パスワードが数字のみの場合新規登録されないことのテスト",
+        "db": [
+            {
+                "ID": "1",
+                "DataType": "user",
+                "UserInfo": {
+                    "is_google_linked": false,
+                    "google_config": null,
+                    "default_length": {
+                        "work": 25,
+                        "rest": 5
+                    }
+                }
+            }
+        ],
+        "request": {
+            "user_id": "2",
+            "password": "12345678"
+        },
+        "answer": {
+            "error_message": "パスワードは大文字小文字を含んだ英数字8文字以上24文字以内で入力してください"
         }
     }
 ]

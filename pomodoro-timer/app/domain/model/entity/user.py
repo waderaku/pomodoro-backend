@@ -1,10 +1,12 @@
 from __future__ import annotations
 
+import hashlib
 from typing import Optional
 
 from app.domain.exception.custom_exception import NotSettingConfigException
 from app.domain.model.value.default_length import DefaultLength
 from app.domain.model.value.google_config import GoogleConfig
+from app.domain.model.value.password import Password
 
 
 class User:
@@ -14,29 +16,32 @@ class User:
         is_google_linked: bool,
         default_length: DefaultLength,
         google_config: Optional[GoogleConfig],
+        password: Optional[Password] = None,
     ):
         self._user_id = user_id
+        self._password = password
         self._is_google_linked = is_google_linked
         self._default_length = default_length
         self._google_config = google_config
 
     @classmethod
-    def create(
-        cls,
-        user_id: str,
-    ) -> User:
+    def create(cls, user_id: str, plain_password: str) -> User:
         """ユーザオブジェクトの新規作成をする.
         初期のタイマー設定時間は作業時間が25分、休憩時間が5分とする
         Googleとの連携はない状態とする
 
         Args:
             user_id (str): 新規作成するユーザのID
+            plain_password(str): 新規作成するユーザのパスワード、Cognito連携時に削除
 
         Returns:
             User:新規作成されたユーザオブジェクト
         """
+        hashed_password = Password(value=plain_password, is_hashed=False)
+
         return cls(
             user_id=user_id,
+            password=hashed_password,
             is_google_linked=False,
             default_length=DefaultLength(25, 5),
             google_config=None,

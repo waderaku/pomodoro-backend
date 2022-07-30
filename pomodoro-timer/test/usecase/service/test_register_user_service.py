@@ -1,3 +1,4 @@
+import hashlib
 import json
 from decimal import Decimal
 from pathlib import Path
@@ -27,18 +28,22 @@ with test_data_failed_path.open("r") as f:
 
 ##########ユーザー登録正常系テスト##############
 @pytest.mark.parametrize("test_data_success", test_data_success_list)
-def test_register_event_success(test_data_success: dict):
+def test_register_user_success(test_data_success: dict):
     request, answer = initial_process(test_data_success)
     register_user_service(**request)
     user = fetch_user(request["user_id"])
     task_list = fetch_task(request["user_id"])
+    # passwordハッシュ化
+    answer[0]["UserInfo"]["password"] = hashlib.sha256(
+        answer[0]["UserInfo"]["password"].encode()
+    ).hexdigest()
     assert answer[0] == user
     assert answer[1:] == task_list
 
 
 ##########ユーザー登録異常系テスト##############
 @pytest.mark.parametrize("test_data_failed", test_data_failed_list)
-def test_register_event_failed(test_data_failed: dict):
+def test_register_user_failed(test_data_failed: dict):
     request, answer = initial_process(test_data_failed)
     with pytest.raises(Exception) as e:
         register_user_service(**request)

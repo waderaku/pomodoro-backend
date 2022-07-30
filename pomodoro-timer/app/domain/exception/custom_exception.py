@@ -66,3 +66,10 @@ class UpdateRootTaskException(Exception):
 
     def __init__(self):
         super().__init__("rootタスクは更新できません")
+
+
+class PasswordIsInvalidException(Exception):
+    """パスワードが入力規定を満たしていない場合の例外"""
+
+    def __init__(self):
+        super().__init__("パスワードは大文字小文字を含んだ英数字8文字以上24文字以内で入力してください")

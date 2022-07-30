@@ -11,7 +11,8 @@
                     "default_length": {
                         "work": 25,
                         "rest": 5
-                    }
+                    },
+                    "password": "Passw0rd"
                 }
             }
         ],
@@ -33,7 +34,8 @@
                 "default_length": {
                     "work": 25,
                     "rest": 5
-                }
+                },
+                "password": "Passw0rd"
             }
         }
     },
@@ -49,7 +51,8 @@
                     "default_length": {
                         "work": 25,
                         "rest": 5
-                    }
+                    },
+                    "password": "Passw0rd"
                 }
             }
         ],
@@ -89,7 +92,8 @@
                         "id": "200",
                         "name": "タスク一覧A"
                     }
-                }
+                },
+                "password": "Passw0rd"
             }
         }
     }
