@@ -10,7 +10,7 @@ from app.domain.exception.custom_exception import PasswordIsInvalidException
 REGIX = "\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)[a-zA-Z\d]{8,24}\Z"
 
 
-@dataclass(init=True, eq=True)
+@dataclass
 class Password:
     value: str
     is_hashed: bool
