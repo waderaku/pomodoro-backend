@@ -1,9 +1,12 @@
 import os
-from dataclasses import dataclass
 from datetime import datetime
 
 import boto3
-from app.domain.exception.custom_exception import NoExistTaskException
+from app.domain.exception.custom_exception import (
+    NoExistTaskException,
+    UpdateRootTaskException,
+)
+from app.domain.model.entity.task import ROOT_TASK_ID
 from boto3.dynamodb.conditions import Key
 
 table_name = "pomodoro_info"
@@ -19,6 +22,8 @@ def update_task_service(
     done: bool,
     shortcut_flg: bool,
 ):
+    if task_id == ROOT_TASK_ID:
+        raise UpdateRootTaskException()
 
     dynamodb = boto3.resource(
         "dynamodb", endpoint_url=os.environ.get("DYNAMODB_ENDPOINT", None)
