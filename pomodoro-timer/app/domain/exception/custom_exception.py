@@ -68,7 +68,7 @@ class UpdateRootTaskException(Exception):
         super().__init__("rootタスクは更新できません")
 
 
-class PasswordIsNotValidException(Exception):
+class PasswordIsInvalidException(Exception):
     """パスワードが入力規定を満たしていない場合の例外"""
 
     def __init__(self):
