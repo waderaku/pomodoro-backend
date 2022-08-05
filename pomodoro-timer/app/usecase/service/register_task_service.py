@@ -13,6 +13,8 @@ from app.domain.exception.custom_exception import (
 )
 from boto3.dynamodb.conditions import Key
 
+from app.domain.model.entity.task import ROOT_TASK_ID
+
 table_name = "pomodoro_info"
 
 
@@ -28,10 +30,10 @@ def register_task_service(
     estimated_workload: int,
     deadline: datetime,
     notes: str,
-    shortcutFlg: bool,
+    shortcut_flg: bool,
 ):
-    # rootの子タスクの場合shortcutFlgがtrueであること
-    if parent_id == "root" and not shortcutFlg:
+    # rootの子タスクの場合shortcut_flgがtrueであること
+    if parent_id == ROOT_TASK_ID and not shortcut_flg:
         raise NotShortcutTaskException()
 
     dynamodb = boto3.resource(
@@ -61,7 +63,7 @@ def register_task_service(
             "estimated_workload": estimated_workload,
             "deadline": deadline.strftime("%Y-%m-%d"),
             "notes": notes,
-            "shortcutFlg": shortcutFlg,
+            "shortcut_flg": shortcut_flg,
         },
     }
     additional_task_deadline = {
@@ -78,8 +80,7 @@ def register_task_service(
 
     update_task_list = []
     # 親タスクに子タスク情報を追加
-    parent_task_list = list(
-        filter(lambda x: x["DataType"] == parent_id, task_list))
+    parent_task_list = list(filter(lambda x: x["DataType"] == parent_id, task_list))
     if len(parent_task_list) == 0:
         raise NoExistParentTaskException()
     parent_task = parent_task_list[0]
@@ -93,9 +94,7 @@ def register_task_service(
     task_tree = _create_root_tree(task_list)
 
     # そのツリーから元々のタスクの更新
-    update_task_list = _update_task_tree(
-        task_dict, task_tree, additional_task, user_id
-    )
+    update_task_list = _update_task_tree(task_dict, task_tree, additional_task, user_id)
 
     with table.batch_writer() as batch:
         for task in update_task_list:

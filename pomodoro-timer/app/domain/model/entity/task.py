@@ -3,6 +3,11 @@ from __future__ import annotations
 from datetime import datetime
 
 
+ROOT_TASK_ID = "root"
+ROOT_TASK_NAME = "HOME"
+ROOT_TASK_WORKLOAD = 105120000
+
+
 class Task:
     def __init__(
         self,
@@ -32,13 +37,13 @@ class Task:
     def create_root(cls, user_id: str) -> Task:
         return cls(
             user_id=user_id,
-            task_id="root",
-            name="全ての親タスク",
+            task_id=ROOT_TASK_ID,
+            name=ROOT_TASK_NAME,
             shortcut_flg=False,
             children_task_id=[],
             done=False,
-            finished_workload=0,
-            estimated_workload=0,
-            deadline="",
+            finished_workload=ROOT_TASK_WORKLOAD,
+            estimated_workload=ROOT_TASK_WORKLOAD,
+            deadline="2200-12-31",
             notes="",
         )

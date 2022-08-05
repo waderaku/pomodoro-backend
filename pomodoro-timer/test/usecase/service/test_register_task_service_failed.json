@@ -34,7 +34,7 @@
                     "estimated_workload": 150.0,
                     "deadline": "2022-04-09",
                     "notes": "備考を記載",
-                    "shortcutFlg": true
+                    "shortcut_flg": true
                 }
             }
         ],
@@ -45,7 +45,7 @@
             "estimated_workload": 30,
             "deadline": "2022-05-15",
             "notes": "メモメモ",
-            "shortcutFlg": true
+            "shortcut_flg": true
         },
         "answer": {
             "error_message": "当該ユーザーは存在しません"
@@ -86,7 +86,7 @@
                     "estimated_workload": 150.0,
                     "deadline": "2022-04-09",
                     "notes": "備考を記載",
-                    "shortcutFlg": true
+                    "shortcut_flg": true
                 }
             }
         ],
@@ -97,7 +97,7 @@
             "estimated_workload": 30,
             "deadline": "2022-05-15",
             "notes": "メモメモ",
-            "shortcutFlg": false
+            "shortcut_flg": false
         },
         "answer": {
             "error_message": "対象の親タスクが存在しません"
@@ -138,7 +138,7 @@
                     "estimated_workload": 150.0,
                     "deadline": "2022-04-09",
                     "notes": "備考を記載",
-                    "shortcutFlg": true
+                    "shortcut_flg": true
                 }
             }
         ],
@@ -149,7 +149,7 @@
             "estimated_workload": 50,
             "deadline": "2022-04-08",
             "notes": "メモメモ",
-            "shortcutFlg": true
+            "shortcut_flg": true
         },
         "answer": {
             "error_message": "親タスクがすでに完了しています"
@@ -190,7 +190,7 @@
                     "estimated_workload": 150.0,
                     "deadline": "2022-04-09",
                     "notes": "備考を記載",
-                    "shortcutFlg": true
+                    "shortcut_flg": true
                 }
             }
         ],
@@ -201,7 +201,7 @@
             "estimated_workload": 50,
             "deadline": "2022-04-08",
             "notes": "メモメモ",
-            "shortcutFlg": false
+            "shortcut_flg": false
         },
         "answer": {
             "error_message": "ショートカットフラグが設定されていません"

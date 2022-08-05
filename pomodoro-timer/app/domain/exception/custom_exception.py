@@ -52,3 +52,24 @@ class NotShortcutTaskException(Exception):
 
     def __init__(self):
         super().__init__("ショートカットフラグが設定されていません")
+
+
+class DeleteRootTaskException(Exception):
+    """削除対象のタスクがrootタスクである場合の例外"""
+
+    def __init__(self):
+        super().__init__("rootタスクは削除できません")
+
+
+class UpdateRootTaskException(Exception):
+    """更新対象のタスクがrootタスクである場合の例外"""
+
+    def __init__(self):
+        super().__init__("rootタスクは更新できません")
+
+
+class PasswordIsInvalidException(Exception):
+    """パスワードが入力規定を満たしていない場合の例外"""
+
+    def __init__(self):
+        super().__init__("パスワードは大文字小文字を含んだ英数字8文字以上24文字以内で入力してください")
