@@ -36,8 +36,8 @@ def test_login_service_success(test_data_success: dict):
     token_user = login_service(**request)
     expected_token = fetch_token(token_user._user_id, token_user._auth_token.value)
 
-    assert token_user._user_id == expected_token["ID"]
-    assert token_user._auth_token.value == expected_token["DataType"]
+    assert token_user._user_id == expected_token["DataType"]
+    assert token_user._auth_token.value == expected_token["ID"]
     assert token_user._auth_token.deadline.isoformat() == expected_token["Deadline"]
 
 
