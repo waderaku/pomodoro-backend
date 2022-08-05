@@ -1,0 +1,52 @@
+[
+    {
+        "description": "存在しないユーザーでログインできないことのテスト",
+        "db": [
+            {
+                "ID": "1",
+                "DataType": "user",
+                "UserInfo": {
+                    "is_google_linked": false,
+                    "google_config": null,
+                    "password": "ab38eadaeb746599f2c1ee90f8267f31f467347462764a24d71ac1843ee77fe3",
+                    "default_length": {
+                        "work": 25,
+                        "rest": 5
+                    }
+                }
+            }
+        ],
+        "request": {
+            "user_id": "2",
+            "password": "Passw0rd"
+        },
+        "answer": {
+            "error_message": "当該ユーザーは存在しません"
+        }
+    },
+    {
+        "description": "誤ったパスワードでログインできないことのテスト",
+        "db": [
+            {
+                "ID": "1",
+                "DataType": "user",
+                "UserInfo": {
+                    "is_google_linked": false,
+                    "google_config": null,
+                    "password": "ab38eadaeb746599f2c1ee90f8267f31f467347462764a24d71ac1843ee77fe3",
+                    "default_length": {
+                        "work": 25,
+                        "rest": 5
+                    }
+                }
+            }
+        ],
+        "request": {
+            "user_id": "1",
+            "password": "Passw0rd2"
+        },
+        "answer": {
+            "error_message": "パスワードが異なります"
+        }
+    }
+]
