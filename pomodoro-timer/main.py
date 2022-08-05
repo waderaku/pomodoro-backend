@@ -4,10 +4,18 @@ from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.domain.repository.auth_user_repository import AuthUserRepository
 from app.domain.repository.task_user_repository import TaskUserRepository
+from app.domain.repository.token_user_repository import TokenUserRepository
 from app.domain.repository.user_repository import UserRepository
+from app.infrastructure.dynamodb.repository.auth_user_dynamo_repository import (
+    AuthUserDynamoRepository,
+)
 from app.infrastructure.dynamodb.repository.task_user_dynamo_repository import (
     TaskUserDynamoRepository,
+)
+from app.infrastructure.dynamodb.repository.token_user_dynamo_repository import (
+    TokenUserDynamoRepository,
 )
 from app.infrastructure.dynamodb.repository.user_dynamo_repository import (
     UserDynamoRepository,
@@ -37,6 +45,8 @@ app.add_middleware(
 def inject_config(binder: inject.Binder):
     binder.bind(UserRepository, UserDynamoRepository())
     binder.bind(TaskUserRepository, TaskUserDynamoRepository())
+    binder.bind(AuthUserRepository, AuthUserDynamoRepository())
+    binder.bind(TokenUserRepository, TokenUserDynamoRepository())
 
 
 if __name__ == "__main__":
