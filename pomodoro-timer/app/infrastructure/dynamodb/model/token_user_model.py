@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from datetime import datetime
 
 from app.domain.model.entity.token_user import TokenUser
+from app.domain.model.value.auth_token import AuthToken
 
 
 @dataclass
@@ -21,3 +22,7 @@ class TokenUserModel:
             DataValue="token",
             Deadline=token_user._auth_token.deadline.isoformat(),
         )
+
+    def to_token_user(self) -> TokenUser:
+        auth_token = AuthToken(self.ID, datetime.fromisoformat(self.Deadline))
+        return TokenUser(self.DataType, auth_token)

@@ -80,3 +80,17 @@ class MissMatchPasswordException(Exception):
 
     def __init__(self):
         super().__init__("パスワードが異なります")
+
+
+class NoExistTokenException(Exception):
+    """対象のトークンがDBに存在しなかった場合の例外"""
+
+    def __init__(self):
+        super().__init__("当該トークンは存在しません")
+
+
+class ExpiredTokenException(Exception):
+    """対象のトークンが有効期限切れの場合の例外"""
+
+    def __init__(self):
+        super().__init__("当該トークンは有効期限切れです")

@@ -21,3 +21,6 @@ class TokenUser:
                 secrets.token_hex(), datetime.now() + timedelta(days=TOKEN_EXPIRED_DAYS)
             ),
         )
+
+    def is_expired(self) -> bool:
+        return self._auth_token.is_expired()
