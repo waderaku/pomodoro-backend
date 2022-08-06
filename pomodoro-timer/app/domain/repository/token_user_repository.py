@@ -25,3 +25,15 @@ class TokenUserRepository(ABC):
             TokenUser: トークンデータ
         """
         raise NotImplementedError()
+
+    @abstractmethod
+    def delete_by_token(self, token: str) :
+        """トークンに紐づくデータを削除する
+
+        Args:
+            token (str): トークン
+
+        Returns:
+            TokenUser: トークンデータ
+        """
+        raise NotImplementedError()

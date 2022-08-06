@@ -17,8 +17,8 @@
             },
             {
                 "ID": "token",
-                "DataType": "1",
-                "DataValue": "token",
+                "DataType": "token",
+                "DataValue": "1",
                 "Deadline": "2100-04-20T22:16:39.287433"
             }
         ],
@@ -47,8 +47,8 @@
             },
             {
                 "ID": "token",
-                "DataType": "1",
-                "DataValue": "token",
+                "DataType": "token",
+                "DataValue": "1",
                 "Deadline": "2022-04-20T22:16:39.287433"
             }
         ],

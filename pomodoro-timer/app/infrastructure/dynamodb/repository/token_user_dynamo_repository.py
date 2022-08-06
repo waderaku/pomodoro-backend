@@ -26,3 +26,6 @@ class TokenUserDynamoRepository(TokenUserRepository, DynamoRepository):
             return
         token_user_dict = item_list[0]
         return TokenUserModel(**token_user_dict).to_token_user()
+
+    def delete_by_token(self, token: str):
+        self._table.delete_item(Key={"ID": token, "DataType": "token"})

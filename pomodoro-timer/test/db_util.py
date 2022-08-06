@@ -68,9 +68,9 @@ def fetch_user(user_id: str) -> dict:
     )
 
 
-def fetch_token(user_id: str, token: str) -> dict:
+def fetch_token(token: str) -> dict:
     table = _get_pomodoro_table()
-    return table.get_item(Key={"ID": token, "DataType": user_id}).get("Item", None)
+    return table.get_item(Key={"ID": token, "DataType": "token"}).get("Item", None)
 
 
 def scan_table() -> dict:
