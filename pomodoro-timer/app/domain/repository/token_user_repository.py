@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from typing import Optional
 
 from app.domain.model.entity.token_user import TokenUser
 
@@ -10,5 +11,29 @@ class TokenUserRepository(ABC):
 
         Args:
             token_user (str): トークンデータ
+        """
+        raise NotImplementedError()
+
+    @abstractmethod
+    def find_by_token(self, token: str) -> Optional[TokenUser]:
+        """トークンに紐づくデータを取得する
+
+        Args:
+            token (str): トークン
+
+        Returns:
+            TokenUser: トークンデータ
+        """
+        raise NotImplementedError()
+
+    @abstractmethod
+    def delete_by_token(self, token: str) :
+        """トークンに紐づくデータを削除する
+
+        Args:
+            token (str): トークン
+
+        Returns:
+            TokenUser: トークンデータ
         """
         raise NotImplementedError()

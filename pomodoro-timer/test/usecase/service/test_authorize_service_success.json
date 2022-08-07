@@ -1,0 +1,36 @@
+[
+    {
+        "description": "トークンが認証されることのテスト",
+        "db": [
+            {
+                "ID": "1",
+                "DataType": "user",
+                "UserInfo": {
+                    "is_google_linked": false,
+                    "google_config": null,
+                    "password": "ab38eadaeb746599f2c1ee90f8267f31f467347462764a24d71ac1843ee77fe3",
+                    "default_length": {
+                        "work": 25,
+                        "rest": 5
+                    }
+                }
+            },
+            {
+                "ID": "token",
+                "DataType": "token",
+                "DataValue": "1",
+                "Deadline": "2100-04-20T22:16:39.287433"
+            }
+        ],
+        "request": {
+            "token": "token"
+        },
+        "answer": {
+            "user_id": "1",
+            "auth_token": {
+                "value": "token",
+                "deadline": "2100-04-20T22:16:39.287433"
+            }
+        }
+    }
+]
