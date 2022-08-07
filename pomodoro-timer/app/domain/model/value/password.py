@@ -28,3 +28,6 @@ class Password:
 
     def valid(self) -> bool:
         return bool(re.match(REGIX, self.value))
+
+    def __eq__(self, o: Password) -> bool:
+        return self.value == o.value

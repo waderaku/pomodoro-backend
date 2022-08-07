@@ -73,3 +73,10 @@ class PasswordIsInvalidException(Exception):
 
     def __init__(self):
         super().__init__("パスワードは大文字小文字を含んだ英数字8文字以上24文字以内で入力してください")
+
+
+class MissMatchPasswordException(Exception):
+    """ユーザIDとパスワードがマッチしなかった場合の例外"""
+
+    def __init__(self):
+        super().__init__("パスワードが異なります")

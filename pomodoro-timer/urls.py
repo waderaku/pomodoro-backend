@@ -1,14 +1,21 @@
 from fastapi import FastAPI
 
-from app.presentation.controller import (delete_task, fetch_event_summary,
-                                         fetch_task, fetch_user,
-                                         register_event, register_task,
-                                         register_user, search_event_task,
-                                         update_task, update_user)
+from app.presentation.controller import (
+    delete_task,
+    fetch_event_summary,
+    fetch_task,
+    fetch_user,
+    register_event,
+    register_task,
+    register_user,
+    search_event_task,
+    update_task,
+    update_user,
+)
+from app.presentation.controller.login_controller import login
 from app.presentation.http.common import UserModel
 from app.presentation.http.response import TaskResponse
-from app.presentation.http.response.fetch_event_response import (EventSummary,
-                                                                 EventTask)
+from app.presentation.http.response.fetch_event_response import EventSummary, EventTask
 
 
 def api_routing(app: FastAPI):
@@ -122,5 +129,15 @@ def api_routing(app: FastAPI):
         基準日（YYYY-MM-dd）から見ての当月、当週及び当日を含めた
         これまでの作業時間のサマリーを取得する
         単位はhourを小数点第一位までで返却する
+        """,
+    )
+    app.add_api_route(
+        "/login",
+        login,
+        methods=["POST"],
+        tags=["login"],
+        description="""
+        ログインする
+        認証が成功した場合、トークンを発行する
         """,
     )

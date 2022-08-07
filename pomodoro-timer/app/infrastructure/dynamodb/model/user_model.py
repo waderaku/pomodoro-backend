@@ -3,6 +3,7 @@ from __future__ import annotations
 from dataclasses import asdict, dataclass
 from typing import Optional
 
+from app.domain.model.entity.auth_user import AuthUser
 from app.domain.model.entity.user import User
 from app.domain.model.value.default_length import DefaultLength
 from app.domain.model.value.google_config import Calendar, GoogleConfig, TaskList
@@ -47,6 +48,16 @@ class UserModel:
             default_length=default_length,
             google_config=google_config,
             password=Password(self.UserInfo.password, is_hashed=True),
+        )
+
+    def to_auth_user(self) -> AuthUser:
+        """認証用ユーザを生成する
+
+        Returns:
+            AuthUser: 認証用ユーザ
+        """
+        return AuthUser(
+            user_id=self.ID, password=Password(self.UserInfo.password, True)
         )
 
     @classmethod
